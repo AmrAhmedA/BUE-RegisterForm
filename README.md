@@ -13,10 +13,10 @@ The Technologies used in the development of UI was jQuery.
 These screenshots were taken in Sept-2020
 
 * Form in range: ( 900 px, 1124 px) width * 635 px height
-<img src="https://github.com/AmrAhmedA/BUE-RegisterForm/blob/master/src/images/Online_Admission.jpg?raw=true" width="850" height="500">
+<img src="https://github.com/AmrAhmedA/BUE-RegisterForm/blob/master/src/images/Online_Admission.jpg?raw=true" width="850" height="400">
 
 * Form in range: (0 - 600 px) width * 635 px height  
-<img src="https://github.com/AmrAhmedA/BUE-RegisterForm/blob/master/src/images/600px.jpg" width="600" height="600">
+<img src="https://github.com/AmrAhmedA/BUE-RegisterForm/blob/master/src/images/600px.jpg" width="500" height="500">
 
 ### Drawbacks 
 * It has poor design choices
