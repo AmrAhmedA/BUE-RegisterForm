@@ -1,71 +1,24 @@
-import React, { useState } from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import Stepper from "@material-ui/core/Stepper";
-import Step from "@material-ui/core/Step";
-import StepLabel from "@material-ui/core/StepLabel";
-import StepContent from "@material-ui/core/StepContent";
-import Button from "@material-ui/core/Button";
-import Paper from "@material-ui/core/Paper";
-import Typography from "@material-ui/core/Typography";
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    width: "100%",
-  },
-  button: {
-    marginTop: theme.spacing(1),
-    marginRight: theme.spacing(1),
-  },
-  actionsContainer: {
-    marginBottom: theme.spacing(2),
-  },
-  resetContainer: {
-    padding: theme.spacing(3),
-  },
-}));
-
-function getSteps() {
-  return [
-    "ACCOUNT SETUP",
-    "PERSONAL INFORMATION",
-    "CONTACT INFORMATION",
-    "FAMILY INFORMATION",
-    "SCHOOL INFORMATION",
-    "ADMISSION INFORMATION",
-    "SUBMIT INFORMATION",
-  ];
-}
-
-function getStepContent(stepIndex) {
-  switch (stepIndex) {
-    case 0:
-      return "CREATE YOUR ACCOUNT";
-    case 1:
-      return "What is an ad group anyways?";
-    case 2:
-      return "This is the bit I really care about!";
-    default:
-      return "Unknown stepIndex";
-  }
-}
+import React from "react";
+import {
+  Stepper,
+  Step,
+  StepLabel,
+  StepContent,
+  Button,
+  Paper,
+  Typography,
+} from "@material-ui/core/";
+import {
+  getStepContent,
+  getSteps,
+  useVerticalStyles,
+  StepperContent,
+} from "./common/stepperContent";
 
 const VerticalFormStepper = () => {
-  const classes = useStyles();
-  const [activeStep, setActiveStep] = useState(0);
+  const classes = useVerticalStyles();
   const steps = getSteps();
-
-  const handleNext = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep + 1);
-  };
-
-  const handleBack = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep - 1);
-  };
-
-  const handleReset = () => {
-    setActiveStep(0);
-  };
-
+  const { activeStep, handleBack, handleNext, handleReset } = StepperContent();
   return (
     <div className={classes.root}>
       <Stepper activeStep={activeStep} orientation="vertical">

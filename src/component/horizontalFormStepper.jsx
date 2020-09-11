@@ -1,66 +1,23 @@
-import React, { useState } from "react";
+import React from "react";
 import {
-  makeStyles,
   Stepper,
   Step,
   StepLabel,
   Button,
   Typography,
 } from "@material-ui/core/";
+import {
+  getStepContent,
+  getSteps,
+  useHorizontalStyles,
+  StepperContent,
+} from "./common/stepperContent";
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    width: "100%",
-  },
-  backButton: {
-    marginRight: theme.spacing(1),
-  },
-  instructions: {
-    marginTop: theme.spacing(1),
-    marginBottom: theme.spacing(1),
-  },
-}));
-
-function getSteps() {
-  return [
-    "ACCOUNT SETUP",
-    "PERSONAL INFORMATION",
-    "CONTACT INFORMATION",
-    "FAMILY INFORMATION",
-    "SCHOOL INFORMATION",
-    "ADMISSION INFORMATION",
-    "SUBMIT INFORMATION",
-  ];
-}
-
-function getStepContent(stepIndex) {
-  switch (stepIndex) {
-    case 0:
-      return "CREATE YOUR ACCOUNT";
-    case 1:
-      return "What is an ad group anyways?";
-    case 2:
-      return "This is the bit I really care about!";
-    default:
-      return "Unknown stepIndex";
-  }
-}
 const HorizontalFormStepper = () => {
-  const classes = useStyles();
-  const [activeStep, setActiveStep] = useState(0);
+  const classes = useHorizontalStyles();
+  const { activeStep, handleReset, handleBack, handleNext } = StepperContent();
   const steps = getSteps();
 
-  const handleNext = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep + 1);
-  };
-
-  const handleBack = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep - 1);
-  };
-
-  const handleReset = () => {
-    setActiveStep(0);
-  };
   return (
     <div className={classes.root}>
       <Stepper activeStep={activeStep} alternativeLabel>
