@@ -45,7 +45,7 @@ function getStepContent(stepIndex) {
       return "Unknown stepIndex";
   }
 }
-const FormStepper = () => {
+const HorizontalFormStepper = () => {
   const classes = useStyles();
   const [activeStep, setActiveStep] = useState(0);
   const steps = getSteps();
@@ -102,4 +102,4 @@ const FormStepper = () => {
   );
 };
 
-export default FormStepper;
+export default HorizontalFormStepper;
