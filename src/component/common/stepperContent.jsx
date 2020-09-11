@@ -1,5 +1,5 @@
 import { makeStyles } from "@material-ui/core/styles";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export const useVerticalStyles = makeStyles((theme) => ({
   root: {
@@ -32,6 +32,11 @@ export const useHorizontalStyles = makeStyles((theme) => ({
 
 export const StepperContent = () => {
   const [activeStep, setActiveStep] = useState(0);
+
+  useEffect(() => {
+    console.log(activeStep);
+  }, [activeStep]);
+  // console.log(activeStep);
 
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);

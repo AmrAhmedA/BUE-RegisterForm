@@ -50,6 +50,7 @@ const HorizontalFormStepper = () => {
               </Button>
               <Button variant="contained" color="primary" onClick={handleNext}>
                 {activeStep === steps.length - 1 ? "Finish" : "Next"}
+                {/* {console.log(steps.length - 1)} */}
               </Button>
             </div>
           </div>

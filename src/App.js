@@ -32,7 +32,7 @@ function App(props) {
   // console.log(width);
   return (
     <React.StrictMode>
-      {console.log(matches)}
+      {/* {console.log(matches)} */}
       {matches ? <VerticalFormStepper /> :
         <HorizontalFormStepper />}
     </React.StrictMode>
