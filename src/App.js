@@ -1,8 +1,9 @@
 import './App.css';
+import RegisterForm from "./component/registerForm"
+import FormStepper from "./component/formStepper"
 import React from 'react';
 function App() {
-  return (
-    <h1>Test</h1>
+  return (<FormStepper />
   );
 }
 
