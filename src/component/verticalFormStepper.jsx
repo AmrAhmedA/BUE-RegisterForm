@@ -6,7 +6,6 @@ import {
   StepContent,
   Button,
   Paper,
-  Typography,
   Grid,
   Container,
 } from "@material-ui/core/";
@@ -34,7 +33,7 @@ const VerticalFormStepper = ({
                 <Step key={label}>
                   <StepLabel>{label}</StepLabel>
                   <StepContent>
-                    <Typography>{getStepContent(index)}</Typography>
+                    {getStepContent(index)}
                     <div className={classes.actionsContainer}>
                       <div>
                         <Button
@@ -60,9 +59,7 @@ const VerticalFormStepper = ({
             </Stepper>
             {activeStep === steps.length && (
               <Paper square elevation={0} className={classes.resetContainer}>
-                <Typography>
-                  All steps completed - you&apos;re finished
-                </Typography>
+                <p>All steps completed - you&apos;re finished</p>
                 <Button onClick={handleReset} className={classes.button}>
                   Reset
                 </Button>

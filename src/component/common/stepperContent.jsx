@@ -1,5 +1,7 @@
+import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { useState, useEffect } from "react";
+import RegisterForm from "../registerForm";
 
 export const useVerticalStyles = makeStyles((theme) => ({
   root: {
@@ -67,7 +69,7 @@ export const getSteps = () => {
 export const getStepContent = (stepIndex) => {
   switch (stepIndex) {
     case 0:
-      return "CREATE YOUR ACCOUNT";
+      return <RegisterForm />;
     case 1:
       return "What is an ad group anyways?";
     case 2:
