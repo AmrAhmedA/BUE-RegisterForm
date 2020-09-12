@@ -5,6 +5,7 @@ import VerticalFormStepper from "./component/verticalFormStepper"
 import { useMediaQuery, withWidth, createMuiTheme } from '@material-ui/core/';
 import PropTypes from 'prop-types';
 import React from 'react';
+import { StepperContent } from "./component/common/stepperContent"
 
 
 const warningTitleCSS =
@@ -28,13 +29,14 @@ const theme = createMuiTheme({ //custom breakpoints
 
 function App(props) {
   const matches = useMediaQuery(theme.breakpoints.down('xs'));
+  const stepContent = StepperContent();
   // const { width } = props;
   // console.log(width);
   return (
     <React.StrictMode>
       {/* {console.log(matches)} */}
-      {matches ? <VerticalFormStepper /> :
-        <HorizontalFormStepper />}
+      {matches ? <VerticalFormStepper {...stepContent} /> :
+        <HorizontalFormStepper {...stepContent} />}
     </React.StrictMode>
   );
 

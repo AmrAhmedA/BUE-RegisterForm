@@ -10,12 +10,15 @@ import {
   getStepContent,
   getSteps,
   useHorizontalStyles,
-  StepperContent,
 } from "./common/stepperContent";
 
-const HorizontalFormStepper = () => {
+const HorizontalFormStepper = ({
+  activeStep,
+  handleReset,
+  handleBack,
+  handleNext,
+}) => {
   const classes = useHorizontalStyles();
-  const { activeStep, handleReset, handleBack, handleNext } = StepperContent();
   const steps = getSteps();
 
   return (

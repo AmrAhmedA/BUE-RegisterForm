@@ -14,13 +14,16 @@ import {
   getStepContent,
   getSteps,
   useVerticalStyles,
-  StepperContent,
 } from "./common/stepperContent";
 
-const VerticalFormStepper = () => {
+const VerticalFormStepper = ({
+  activeStep,
+  handleBack,
+  handleNext,
+  handleReset,
+}) => {
   const classes = useVerticalStyles();
   const steps = getSteps();
-  const { activeStep, handleBack, handleNext, handleReset } = StepperContent();
   return (
     <Container fixed maxWidth="sm">
       <Grid>
