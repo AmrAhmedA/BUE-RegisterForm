@@ -58,8 +58,6 @@ export const UseStyle = () => {
       display: "flex",
       flexWrap: "wrap",
       padding: theme.spacing(5),
-
-      width: "100%",
     },
     margin: {
       margin: theme.spacing(2),

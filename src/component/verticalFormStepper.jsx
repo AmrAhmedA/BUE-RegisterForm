@@ -24,7 +24,7 @@ const VerticalFormStepper = ({
   const classes = useVerticalStyles();
   const steps = getSteps();
   return (
-    <Container fixed maxWidth="sm">
+    <Container fixed maxWidth="md">
       <Grid>
         <Paper variant="outlined" elevation={2}>
           <div className={classes.root}>

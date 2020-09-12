@@ -1,10 +1,9 @@
-import './App.css';
-// import RegisterForm from "./component/registerForm"
+import React from 'react';
 import HorizontalFormStepper from "./component/horizontalFormStepper"
 import VerticalFormStepper from "./component/verticalFormStepper"
-import { useMediaQuery, withWidth, createMuiTheme } from '@material-ui/core/';
+import 'bootstrap/dist/css/bootstrap.css';
 import PropTypes from 'prop-types';
-import React from 'react';
+import { useMediaQuery, withWidth, createMuiTheme } from '@material-ui/core/';
 import { StepperContent } from "./component/common/stepperContent"
 
 

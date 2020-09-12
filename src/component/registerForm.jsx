@@ -2,7 +2,6 @@ import React from "react";
 import {
   Grid,
   IconButton,
-  InputAdornment,
   Button,
   Hidden,
   withWidth,
@@ -12,9 +11,8 @@ import {
 import Visibility from "@material-ui/icons/Visibility";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import PropTypes from "prop-types";
-import BueLogo from "../images/BUE-Logo.png";
+import BueLogo from "../images/BUELogo.png";
 import { Form, UseStyle } from "./form";
-import Input from "./common/input";
 
 const initialFieldValues = {
   id: 0,
@@ -30,7 +28,6 @@ const initialFieldValues = {
 const RegisterForm = () => {
   const {
     values,
-    handleInputChange,
     handleSubmit,
     handleClickShowPassword,
     handleMouseDownPassword,
@@ -66,37 +63,13 @@ const RegisterForm = () => {
                   )}
                 </Grid>
                 <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
-                  <Input
-                    InputProps={{
-                      endAdornment: (
-                        <InputAdornment position="end">
-                          @gmail.com
-                        </InputAdornment>
-                      ),
-                    }}
-                    id="username"
-                    name="username"
-                    label="Username"
-                    type="text"
-                    helperText="You can use letters, numbers &amp; periods"
-                    value={values.username}
-                    onChange={handleInputChange}
-                  />
-                </Grid>
-                <Grid item xs={12}>
-                  <Button
-                    disableElevation
-                    disableRipple
-                    href="#text-buttons"
-                    style={{
-                      textTransform: "none",
-                      textAlign: "center",
-                      fontSize: "13px",
-                    }}
-                    color="primary"
-                  >
-                    Use my current email address instead
-                  </Button>
+                  {renderInput(
+                    "email",
+                    "email",
+                    "Email",
+                    "text",
+                    "You can use letters, numbers and periods"
+                  )}
                 </Grid>
                 <Grid item xs={12} sm={5} md={5} lg={5} xl={5}>
                   {renderInput(
@@ -176,11 +149,7 @@ const RegisterForm = () => {
               <Grid item xs={12} sm={6} md={6} lg={6} xl={6}>
                 <Grid container align="center" className={margin}>
                   <Grid item xs>
-                    <img src={BueLogo} alt="" width={250} />
-                    <label>
-                      Learn How to think <br />
-                      Not What to think
-                    </label>
+                    <img src={BueLogo} alt="" width={300} height={250} />
                   </Grid>
                 </Grid>
               </Grid>
