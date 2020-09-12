@@ -14,7 +14,6 @@ import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import PropTypes from "prop-types";
 import BueLogo from "../images/BUELogo.png";
 import { Form, UseStyle } from "./form";
-
 const initialFieldValues = {
   id: 0,
   firstname: "",
@@ -26,7 +25,7 @@ const initialFieldValues = {
   showPassword: false,
 };
 
-const RegisterForm = () => {
+const RegisterForm = ({ onNext }) => {
   const {
     values,
     handleSubmit,
@@ -138,6 +137,7 @@ const RegisterForm = () => {
                             fontSize: "15px",
                             textAlign: "center",
                           }}
+                          onClick={onNext}
                         >
                           Next
                         </Button>

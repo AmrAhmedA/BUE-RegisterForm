@@ -66,10 +66,10 @@ export const getSteps = () => {
   ];
 };
 
-export const getStepContent = (stepIndex) => {
+export const getStepContent = (stepIndex, handleNext) => {
   switch (stepIndex) {
     case 0:
-      return <RegisterForm />;
+      return <RegisterForm onNext={handleNext} />;
     case 1:
       return "What is an ad group anyways?";
     case 2:
