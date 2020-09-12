@@ -8,6 +8,7 @@ import {
   Paper,
   Container,
 } from "@material-ui/core";
+
 import Visibility from "@material-ui/icons/Visibility";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import PropTypes from "prop-types";
@@ -129,8 +130,9 @@ const RegisterForm = () => {
                         justify="flex-end"
                         alignItems="flex-end"
                       >
-                        <button
-                          className="btn btn-primary"
+                        <Button
+                          variant="contained"
+                          color="primary"
                           style={{
                             padding: "5px 25px 8px ",
                             fontSize: "15px",
@@ -138,7 +140,7 @@ const RegisterForm = () => {
                           }}
                         >
                           Next
-                        </button>
+                        </Button>
                       </Grid>
                     </Grid>
                   </Grid>
