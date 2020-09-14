@@ -1,7 +1,7 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { useState, useEffect } from "react";
-import RegisterForm from "../registerForm";
+import RegisterForm from "../accountSetupForm";
 
 export const useVerticalStyles = makeStyles((theme) => ({
   root: {
