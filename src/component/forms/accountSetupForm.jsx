@@ -15,29 +15,27 @@ import PropTypes from "prop-types";
 import BueLogo from "../images/BUELogo.png";
 import { Form, UseStyle } from "./form";
 const initialFieldValues = {
-  id: 0,
-  firstname: "",
-  secondname: "",
-  email: "",
-  username: "",
+  idType: "",
+  id: "",
   password: "",
-  confirmpassword: "",
+  confirm: "",
   showPassword: false,
 };
+const items = ["National Number", "Passport"];
 
-const PersonalInformationForm = ({ onNext, onBack, activeStep, steps }) => {
+const AccountSetupForm = ({ onNext }) => {
   const {
     values,
     handleSubmit,
     handleClickShowPassword,
     handleMouseDownPassword,
     renderInput,
+    renderDropDown,
   } = Form(initialFieldValues);
 
   const { root, margin } = UseStyle();
 
   return (
-    // <Paper className={root}>
     <Container fixed maxWidth="md">
       <Paper variant="outlined" elevation={2}>
         <form className={root} onSubmit={handleSubmit}>
@@ -45,22 +43,10 @@ const PersonalInformationForm = ({ onNext, onBack, activeStep, steps }) => {
             <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
               <Grid container spacing={3}>
                 <Grid item xs={12} sm={6} md={6} lg={6} xl={6}>
-                  {renderInput(
-                    "firstname",
-                    "firstname",
-                    "First name",
-                    "text",
-                    ""
-                  )}
+                  {renderDropDown(items, "ID Type", "ID Type")}
                 </Grid>
                 <Grid item xs={12} sm={6} md={6} lg={6} xl={6}>
-                  {renderInput(
-                    "secondname",
-                    "secondname",
-                    "Last name",
-                    "text",
-                    ""
-                  )}
+                  {renderInput("id", "id", "ID Number", "text", "")}
                 </Grid>
                 <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
                   {renderInput(
@@ -136,24 +122,10 @@ const PersonalInformationForm = ({ onNext, onBack, activeStep, steps }) => {
                             padding: "5px 25px 8px ",
                             fontSize: "15px",
                             textAlign: "center",
-                            marginRight: "20px",
-                          }}
-                          onClick={onBack}
-                          disabled={activeStep === 0}
-                        >
-                          Back
-                        </Button>
-                        <Button
-                          variant="contained"
-                          color="primary"
-                          style={{
-                            padding: "5px 25px 8px ",
-                            fontSize: "15px",
-                            textAlign: "center",
                           }}
                           onClick={onNext}
                         >
-                          {activeStep === steps.length - 1 ? "Finish" : "Next"}
+                          Next
                         </Button>
                       </Grid>
                     </Grid>
@@ -176,8 +148,8 @@ const PersonalInformationForm = ({ onNext, onBack, activeStep, steps }) => {
     </Container>
   );
 };
-PersonalInformationForm.propTypes = {
+AccountSetupForm.propTypes = {
   width: PropTypes.oneOf(["lg", "md", "sm", "xl", "xs"]).isRequired,
 };
 
-export default withWidth()(PersonalInformationForm);
+export default withWidth()(AccountSetupForm);

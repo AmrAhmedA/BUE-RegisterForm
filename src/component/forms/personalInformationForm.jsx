@@ -13,29 +13,31 @@ import Visibility from "@material-ui/icons/Visibility";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import PropTypes from "prop-types";
 import BueLogo from "../images/BUELogo.png";
-import { Form, UseStyle } from "./form";
+import { Form, UseStyle } from "../form";
 const initialFieldValues = {
-  idType: "",
-  id: "",
+  id: 0,
+  firstname: "",
+  secondname: "",
+  email: "",
+  username: "",
   password: "",
-  confirm: "",
+  confirmpassword: "",
   showPassword: false,
 };
-const items = ["National Number", "Passport"];
 
-const AccountSetupForm = ({ onNext }) => {
+const PersonalInformationForm = ({ onNext, onBack, activeStep, steps }) => {
   const {
     values,
     handleSubmit,
     handleClickShowPassword,
     handleMouseDownPassword,
     renderInput,
-    renderDropDown,
   } = Form(initialFieldValues);
 
   const { root, margin } = UseStyle();
 
   return (
+    // <Paper className={root}>
     <Container fixed maxWidth="md">
       <Paper variant="outlined" elevation={2}>
         <form className={root} onSubmit={handleSubmit}>
@@ -43,16 +45,28 @@ const AccountSetupForm = ({ onNext }) => {
             <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
               <Grid container spacing={3}>
                 <Grid item xs={12} sm={6} md={6} lg={6} xl={6}>
-                  {renderDropDown(items, "ID Type", "ID Type")}
+                  {renderInput(
+                    "firstname",
+                    "firstname",
+                    "First name",
+                    "text",
+                    ""
+                  )}
                 </Grid>
                 <Grid item xs={12} sm={6} md={6} lg={6} xl={6}>
-                  {renderInput("id", "id", "ID Number", "text", "")}
+                  {renderInput(
+                    "secondname",
+                    "secondname",
+                    "Last name",
+                    "text",
+                    ""
+                  )}
                 </Grid>
                 <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
                   {renderInput(
                     "email",
                     "email",
-                    "email",
+                    "Email",
                     "text",
                     "You can use letters, numbers and periods"
                   )}
@@ -122,10 +136,24 @@ const AccountSetupForm = ({ onNext }) => {
                             padding: "5px 25px 8px ",
                             fontSize: "15px",
                             textAlign: "center",
+                            marginRight: "20px",
+                          }}
+                          onClick={onBack}
+                          disabled={activeStep === 0}
+                        >
+                          Back
+                        </Button>
+                        <Button
+                          variant="contained"
+                          color="primary"
+                          style={{
+                            padding: "5px 25px 8px ",
+                            fontSize: "15px",
+                            textAlign: "center",
                           }}
                           onClick={onNext}
                         >
-                          Next
+                          {activeStep === steps.length - 1 ? "Finish" : "Next"}
                         </Button>
                       </Grid>
                     </Grid>
@@ -148,8 +176,8 @@ const AccountSetupForm = ({ onNext }) => {
     </Container>
   );
 };
-AccountSetupForm.propTypes = {
+PersonalInformationForm.propTypes = {
   width: PropTypes.oneOf(["lg", "md", "sm", "xl", "xs"]).isRequired,
 };
 
-export default withWidth()(AccountSetupForm);
+export default withWidth()(PersonalInformationForm);

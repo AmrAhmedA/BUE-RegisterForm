@@ -33,7 +33,7 @@ const VerticalFormStepper = ({
                 <Step key={label}>
                   <StepLabel>{label}</StepLabel>
                   <StepContent>
-                    {getStepContent(index, handleNext)}
+                    {getStepContent(activeStep, handleNext, handleBack, steps)}
                     <div className={classes.actionsContainer}>
                       <div>
                         <Button
