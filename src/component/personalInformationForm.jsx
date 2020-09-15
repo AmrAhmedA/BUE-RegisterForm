@@ -25,7 +25,7 @@ const initialFieldValues = {
   showPassword: false,
 };
 
-const PersonalInformationForm = ({ onNext }) => {
+const PersonalInformationForm = ({ onNext, onBack, activeStep, steps }) => {
   const {
     values,
     handleSubmit,
@@ -136,10 +136,24 @@ const PersonalInformationForm = ({ onNext }) => {
                             padding: "5px 25px 8px ",
                             fontSize: "15px",
                             textAlign: "center",
+                            marginRight: "20px",
+                          }}
+                          onClick={onBack}
+                          disabled={activeStep === 0}
+                        >
+                          Back
+                        </Button>
+                        <Button
+                          variant="contained"
+                          color="primary"
+                          style={{
+                            padding: "5px 25px 8px ",
+                            fontSize: "15px",
+                            textAlign: "center",
                           }}
                           onClick={onNext}
                         >
-                          Next
+                          {activeStep === steps.length - 1 ? "Finish" : "Next"}
                         </Button>
                       </Grid>
                     </Grid>

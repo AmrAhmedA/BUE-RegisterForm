@@ -2,6 +2,7 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { useState, useEffect } from "react";
 import PersonalInformationForm from "../personalInformationForm";
+import AccountSetupForm from "../accountSetupForm";
 
 export const useVerticalStyles = makeStyles((theme) => ({
   root: {
@@ -66,12 +67,19 @@ export const getSteps = () => {
   ];
 };
 
-export const getStepContent = (stepIndex, handleNext) => {
+export const getStepContent = (stepIndex, handleNext, handleBack, steps) => {
   switch (stepIndex) {
     case 0:
-      return <PersonalInformationForm onNext={handleNext} />;
+      return <AccountSetupForm onNext={handleNext} />;
     case 1:
-      return "What is an ad group anyways?";
+      return (
+        <PersonalInformationForm
+          onNext={handleNext}
+          onBack={handleBack}
+          stepIndex={stepIndex}
+          steps={steps}
+        />
+      );
     case 2:
       return "This is the bit I really care about!";
     default:

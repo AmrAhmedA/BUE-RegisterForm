@@ -40,7 +40,7 @@ const HorizontalFormStepper = ({
           </div>
         ) : (
           <div>
-            {getStepContent(activeStep, handleNext)}
+            {getStepContent(activeStep, handleNext, handleBack, steps)}
             <div>
               <Button
                 disabled={activeStep === 0}
