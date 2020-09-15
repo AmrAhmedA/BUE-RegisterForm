@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const DropDownInputMenu = ({ items }) => {
+const DropDownInputMenu = ({ items, label, id }) => {
   const classes = useStyles();
   const [age, setAge] = React.useState("");
 
@@ -26,14 +26,15 @@ const DropDownInputMenu = ({ items }) => {
   };
 
   return (
-    <FormControl className={classes.formControl}>
-      <InputLabel id="demo-simple-select-label">Age</InputLabel>
-      <Select
-        labelId="demo-simple-select-label"
-        id="drop-down-input"
-        value={age}
-        onChange={handleChange}
-      >
+    <FormControl
+      size="small"
+      variant="outlined"
+      className={classes.formControl}
+    >
+      <InputLabel size="small" id="demo-simple-select-label">
+        {label}
+      </InputLabel>
+      <Select label={label} id={id} value={age} onChange={handleChange}>
         {items.map((item) => (
           <MenuItem key={item} value={item}>
             {item}

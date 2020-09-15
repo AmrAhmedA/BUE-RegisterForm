@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import PropTypes from 'prop-types';
 import { useMediaQuery, withWidth, createMuiTheme } from '@material-ui/core/';
 import { StepperContent } from "./component/common/stepperContent"
-import DropDownInputMenu from './component/common/dropDownInputMenu';
+// import DropDownInputMenu from './component/common/dropDownInputMenu';
 
 
 const warningTitleCSS =
@@ -30,16 +30,16 @@ const theme = createMuiTheme({ //custom breakpoints
 function App(props) {
   const matches = useMediaQuery(theme.breakpoints.down('xs'));
   const stepContent = StepperContent();
-  const items = ["Male", "Female", "other"]
+  // const items = ["Male", "Female", "other"]
   // const { width } = props;
   // console.log(width);
   return (
-    <React.StrictMode>
+    <div>
       {/* {console.log(matches)} */}
       {matches ? <VerticalFormStepper {...stepContent} /> :
         <HorizontalFormStepper {...stepContent} />}
-      <DropDownInputMenu items={items} />
-    </React.StrictMode>
+      {/* <DropDownInputMenu items={items} label="Age" id="Age" /> */}
+    </div>
   );
 
 }

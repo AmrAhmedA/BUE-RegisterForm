@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core";
 import Input from "./common/input";
+import DropDownInputMenu from "./common/dropDownInputMenu";
 export const Form = (initialFieldValues) => {
   const [values, setValues] = useState(initialFieldValues);
 
@@ -39,6 +40,10 @@ export const Form = (initialFieldValues) => {
     );
   };
 
+  const renderDropDown = (items, label, id) => {
+    return <DropDownInputMenu items={items} label={label} id={id} />;
+  };
+
   return {
     values,
     setValues,
@@ -47,6 +52,7 @@ export const Form = (initialFieldValues) => {
     handleClickShowPassword,
     handleMouseDownPassword,
     renderInput,
+    renderDropDown,
   };
 };
 
