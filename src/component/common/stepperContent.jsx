@@ -1,8 +1,8 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { useState, useEffect } from "react";
-import PersonalInformationForm from "../personalInformationForm";
-import AccountSetupForm from "../accountSetupForm";
+import PersonalInformationForm from "../forms/personalInformationForm";
+import AccountSetupForm from "../forms/accountSetupForm";
 
 export const useVerticalStyles = makeStyles((theme) => ({
   root: {

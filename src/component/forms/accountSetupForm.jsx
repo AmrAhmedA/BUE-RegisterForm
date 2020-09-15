@@ -12,8 +12,8 @@ import {
 import Visibility from "@material-ui/icons/Visibility";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import PropTypes from "prop-types";
-import BueLogo from "../images/BUELogo.png";
-import { Form, UseStyle } from "./form";
+import BueLogo from "../../images/BUELogo.png";
+import { Form, UseStyle } from "../form";
 const initialFieldValues = {
   idType: "",
   id: "",
