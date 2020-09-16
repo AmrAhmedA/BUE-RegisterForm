@@ -3,6 +3,7 @@ import { Grid, Button, withWidth, Paper, Container } from "@material-ui/core";
 
 import PropTypes from "prop-types";
 import { Form, UseStyle } from "../form";
+import DatePicker from "../common/datePicker";
 const initialFieldValues = {
   id: 0,
   firstname: "",
@@ -11,6 +12,7 @@ const initialFieldValues = {
   nationality: "",
   religion: "",
   gender: "",
+  placeofbirth: "",
 };
 const genderItems = ["Male", "Female", "Other"];
 const religionItems = ["Christian", "Muslim", "Jewish", "Other"];
@@ -60,20 +62,23 @@ const PersonalInformationForm = ({ onNext, onBack, activeStep, steps }) => {
                   )}
                 </Grid>
                 <Grid item xs={12} sm={12} md={4} lg={4} xl={4}>
-                  {renderDropDown(genderItems, "Choose your Gender", "gender")}
+                  {renderDropDown(genderItems, "Gender", "gender")}
+                </Grid>
+                <Grid item xs={12} sm={12} md={4} lg={4} xl={4}>
+                  {renderDropDown(religionItems, "Religion", "religion")}
                 </Grid>
                 <Grid item xs={12} sm={12} md={4} lg={4} xl={4}>
                   {renderDropDown(
-                    religionItems,
-                    "Choose your Religion",
-                    "gender"
+                    nationalityItems,
+                    "Natioanlity",
+                    "nationality"
                   )}
                 </Grid>
                 <Grid item xs={12} sm={12} md={4} lg={4} xl={4}>
                   {renderDropDown(
                     nationalityItems,
-                    "Choose your Natioanlity",
-                    "nationality"
+                    "Place of Birth",
+                    "placeofbirth"
                   )}
                 </Grid>
                 <Grid item xs={12} sm={12} md={4} lg={4} xl={4}>
@@ -82,6 +87,9 @@ const PersonalInformationForm = ({ onNext, onBack, activeStep, steps }) => {
                     "Marital Status",
                     "Marital Status"
                   )}
+                </Grid>
+                <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
+                  <DatePicker />
                 </Grid>
                 <Grid item xs={12}>
                   <Grid
