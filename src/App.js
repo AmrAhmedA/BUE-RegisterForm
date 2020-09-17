@@ -8,12 +8,12 @@ import { StepperContent } from "./component/common/stepperContent"
 // import DropDownInputMenu from './component/common/dropDownInputMenu';
 
 
-const warningTitleCSS =
-  "color:red; font-size:50px; font-weight: bold; -webkit-text-stroke: 1px black;";
-setTimeout(
-  console.log.bind(console, "%c#Amr Ahmed", warningTitleCSS),
-  0
-)
+// const warningTitleCSS =
+//   "color:red; font-size:50px; font-weight: bold; -webkit-text-stroke: 1px black;";
+// setTimeout(
+//   console.log.bind(console, "%c#Amr Ahmed", warningTitleCSS),
+//   0
+// )
 
 const theme = createMuiTheme({ //custom breakpoints
   breakpoints: {

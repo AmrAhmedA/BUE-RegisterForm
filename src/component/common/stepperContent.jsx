@@ -37,7 +37,7 @@ export const StepperContent = () => {
   const [activeStep, setActiveStep] = useState(0);
 
   useEffect(() => {
-    console.log(activeStep);
+    // console.log(activeStep);
   }, [activeStep]);
   // console.log(activeStep);
 
