@@ -14,7 +14,7 @@ const initialFieldValues = {
   religion: "",
   gender: "",
   placeofbirth: "",
-  idType: "",
+  idtype: "",
   id: "",
   password: "",
   confirmpassword: "",
@@ -26,6 +26,15 @@ export const Form = (stepIndex, handleNext, handleBack, steps) => {
 
   const handleInputChange = ({ currentTarget: input }) => {
     const { name, value } = input;
+    setValues({
+      ...values,
+      [name]: value,
+    });
+  };
+
+  const handleDropDownChange = (event) => {
+    const { name, value } = event.target;
+    console.log(value, name);
     setValues({
       ...values,
       [name]: value,
@@ -59,8 +68,17 @@ export const Form = (stepIndex, handleNext, handleBack, steps) => {
     );
   };
 
-  const renderDropDown = (items, label, id) => {
-    return <DropDownInputMenu items={items} label={label} id={id} />;
+  const renderDropDown = (items, label, id, name) => {
+    return (
+      <DropDownInputMenu
+        items={items}
+        label={label}
+        id={id}
+        name={name}
+        value={values[name]}
+        onChange={handleDropDownChange}
+      />
+    );
   };
 
   const renderSwitch = (stepIndex, handleNext, handleBack, steps) => {

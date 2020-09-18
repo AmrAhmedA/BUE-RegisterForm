@@ -46,7 +46,7 @@ const AccountSetupForm = ({ onNext }) => {
               <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
                 <Grid container spacing={3}>
                   <Grid item xs={12} sm={6} md={6} lg={6} xl={6}>
-                    {renderDropDown(items, "ID Type", "ID Type")}
+                    {renderDropDown(items, "ID Type", "idtype", "idtype")}
                   </Grid>
                   <Grid item xs={12} sm={6} md={6} lg={6} xl={6}>
                     {renderInput("id", "id", "ID Number", "text", "")}
