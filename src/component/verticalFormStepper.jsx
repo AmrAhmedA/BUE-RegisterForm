@@ -23,6 +23,8 @@ const VerticalFormStepper = ({
 }) => {
   const classes = useVerticalStyles();
   const steps = getSteps();
+
+  console.log("VerticalFormStepper - Rendered");
   return (
     <Container fixed maxWidth="md">
       <Grid>
@@ -33,7 +35,15 @@ const VerticalFormStepper = ({
                 <Step key={label}>
                   <StepLabel>{label}</StepLabel>
                   <StepContent>
-                    {getStepContent(activeStep, handleNext, handleBack, steps)}
+                    {index === activeStep
+                      ? getStepContent(
+                          activeStep,
+                          handleNext,
+                          handleBack,
+                          steps
+                        )
+                      : null}
+                    {console.log(index)}
                     {/* <div className={classes.actionsContainer}>
                       <div>
                         <Button
@@ -57,14 +67,14 @@ const VerticalFormStepper = ({
                 </Step>
               ))}
             </Stepper>
-            {activeStep === steps.length && (
+            {/* {activeStep === steps.length && (
               <Paper square elevation={0} className={classes.resetContainer}>
                 <p>All steps completed - you&apos;re finished</p>
                 <Button onClick={handleReset} className={classes.button}>
                   Reset
                 </Button>
               </Paper>
-            )}
+            )} */}
           </div>
         </Paper>
       </Grid>

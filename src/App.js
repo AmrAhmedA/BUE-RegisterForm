@@ -39,6 +39,7 @@ function App(props) {
   // console.log(width);
   return (
     <div>
+      {console.log("App - Rendered")}
       {/* {console.log(matches)} */}
       {matches ? <VerticalFormStepper {...stepContent} /> :
         <HorizontalFormStepper {...stepContent} />}
