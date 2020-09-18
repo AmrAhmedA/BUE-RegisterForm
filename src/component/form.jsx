@@ -66,7 +66,7 @@ export const Form = (stepIndex, handleNext, handleBack, steps) => {
   const renderSwitch = (stepIndex, handleNext, handleBack, steps) => {
     switch (stepIndex) {
       case 0:
-        console.log("A7a");
+        console.log("renderSwitch");
         return <AccountSetupForm onNext={handleNext} />;
       case 1:
         return (
@@ -96,7 +96,7 @@ export const Form = (stepIndex, handleNext, handleBack, steps) => {
         renderDropDown,
       }}
     >
-      {console.log(stepIndex)}
+      {console.log("Amr", stepIndex)}
       {renderSwitch(stepIndex, handleNext, handleBack, steps)}
     </FormContext.Provider>
   );

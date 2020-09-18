@@ -14,7 +14,7 @@ import Visibility from "@material-ui/icons/Visibility";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import PropTypes from "prop-types";
 import BueLogo from "../../images/BUELogo.png";
-import { Form, UseStyle } from "../form";
+import { UseStyle } from "../form";
 import FormContext from "../context/formContext";
 
 const items = ["National Number", "Passport"];

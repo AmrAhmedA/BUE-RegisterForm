@@ -5,11 +5,10 @@ import 'bootstrap/dist/css/bootstrap.css';
 import PropTypes from 'prop-types';
 import { useMediaQuery, withWidth, createMuiTheme } from '@material-ui/core/';
 import { StepperContent } from "./component/common/stepperContent"
-import Child from './component/context/Child';
-import Parent from './component/context/Parent';
-import ChildClass from './component/context/childClass';
-import ParentClass from './component/context/parentClass';
-
+// import Child from './component/context/Child';
+// import Parent from './component/context/Parent';
+// import ChildClass from './component/context/childClass';
+// import ParentClass from './component/context/parentClass';
 // import DropDownInputMenu from './component/common/dropDownInputMenu';
 
 
@@ -40,7 +39,6 @@ function App(props) {
   // console.log(width);
   return (
     <div>
-      {/* <Parent /> */}
       {/* {console.log(matches)} */}
       {matches ? <VerticalFormStepper {...stepContent} /> :
         <HorizontalFormStepper {...stepContent} />}

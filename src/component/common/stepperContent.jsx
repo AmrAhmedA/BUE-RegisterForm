@@ -1,4 +1,3 @@
-import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { useState, useEffect } from "react";
 import { Form } from "../form";
@@ -67,6 +66,5 @@ export const getSteps = () => {
 };
 
 export const getStepContent = (stepIndex, handleNext, handleBack, steps) => {
-  console.log("Test1", stepIndex);
   return Form(stepIndex, handleNext, handleBack, steps);
 };

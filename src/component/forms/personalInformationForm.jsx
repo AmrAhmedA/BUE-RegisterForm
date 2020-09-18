@@ -10,7 +10,7 @@ import {
 
 import FormContext from "../context/formContext";
 import PropTypes from "prop-types";
-import { Form, UseStyle } from "../form";
+import { UseStyle } from "../form";
 import DatePicker from "../common/datePicker";
 
 const genderItems = ["Male", "Female", "Other"];
