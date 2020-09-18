@@ -34,7 +34,7 @@ const VerticalFormStepper = ({
                   <StepLabel>{label}</StepLabel>
                   <StepContent>
                     {getStepContent(activeStep, handleNext, handleBack, steps)}
-                    <div className={classes.actionsContainer}>
+                    {/* <div className={classes.actionsContainer}>
                       <div>
                         <Button
                           disabled={activeStep === 0}
@@ -52,7 +52,7 @@ const VerticalFormStepper = ({
                           {activeStep === steps.length - 1 ? "Finish" : "Next"}
                         </Button>
                       </div>
-                    </div>
+                    </div> */}
                   </StepContent>
                 </Step>
               ))}

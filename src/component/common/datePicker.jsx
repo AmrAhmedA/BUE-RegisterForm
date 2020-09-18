@@ -16,6 +16,7 @@ const DatePicker = () => {
   return (
     <MuiPickersUtilsProvider fullwidth utils={DateFnsUtils}>
       <KeyboardDatePicker
+        fullWidth
         disableToolbar
         variant="outlined"
         format="MM/dd/yyyy"

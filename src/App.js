@@ -42,7 +42,6 @@ function App(props) {
       {/* {console.log(matches)} */}
       {matches ? <VerticalFormStepper {...stepContent} /> :
         <HorizontalFormStepper {...stepContent} />}
-      {/* <DropDownInputMenu items={items} label="Age" id="Age" /> */}
     </div>
   );
 

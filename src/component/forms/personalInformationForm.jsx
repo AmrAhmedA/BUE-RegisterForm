@@ -66,15 +66,21 @@ const PersonalInformationForm = ({ onNext, onBack, activeStep, steps }) => {
                     )}
                   </Grid>
                   <Grid item xs={12} sm={12} md={4} lg={4} xl={4}>
-                    {renderDropDown(genderItems, "Gender", "gender")}
+                    {renderDropDown(genderItems, "Gender", "gender", "gender")}
                   </Grid>
                   <Grid item xs={12} sm={12} md={4} lg={4} xl={4}>
-                    {renderDropDown(religionItems, "Religion", "religion")}
+                    {renderDropDown(
+                      religionItems,
+                      "Religion",
+                      "religion",
+                      "religion"
+                    )}
                   </Grid>
                   <Grid item xs={12} sm={12} md={4} lg={4} xl={4}>
                     {renderDropDown(
                       nationalityItems,
                       "Natioanlity",
+                      "nationality",
                       "nationality"
                     )}
                   </Grid>
@@ -82,6 +88,7 @@ const PersonalInformationForm = ({ onNext, onBack, activeStep, steps }) => {
                     {renderDropDown(
                       nationalityItems,
                       "Place of Birth",
+                      "placeofbirth",
                       "placeofbirth"
                     )}
                   </Grid>
@@ -89,10 +96,12 @@ const PersonalInformationForm = ({ onNext, onBack, activeStep, steps }) => {
                     {renderDropDown(
                       maritalStatus,
                       "Marital Status",
-                      "Marital Status"
+                      "maritalstatus",
+                      "maritalstatus"
                     )}
                   </Grid>
-                  <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
+                  <Grid item xs={12} sm={12} md={4} lg={4} xl={4}></Grid>
+                  <Grid item xs={12} sm={12} md={4} lg={4} xl={4}>
                     <DatePicker />
                   </Grid>
                   <Grid item xs={12}>

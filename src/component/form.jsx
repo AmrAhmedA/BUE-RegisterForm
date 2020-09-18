@@ -14,6 +14,8 @@ const initialFieldValues = {
   religion: "",
   gender: "",
   placeofbirth: "",
+  maritalstatus: "",
+  dateofbirth: new Date("2020-01-01T21:11:54"),
   idtype: "",
   id: "",
   password: "",
@@ -41,6 +43,10 @@ export const Form = (stepIndex, handleNext, handleBack, steps) => {
     });
   };
 
+  // const handleDateChange = (date) => {
+  //   console.log(date);
+  //   // setValues({ ...values, [name]: date });
+  // };
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Submitted");
