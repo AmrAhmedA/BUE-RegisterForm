@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   Fade,
   Grid,
@@ -15,16 +15,12 @@ import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import PropTypes from "prop-types";
 import BueLogo from "../../images/BUELogo.png";
 import { Form, UseStyle } from "../form";
-const initialFieldValues = {
-  idType: "",
-  id: "",
-  password: "",
-  confirm: "",
-  showPassword: false,
-};
+import FormContext from "../context/formContext";
+
 const items = ["National Number", "Passport"];
 
 const AccountSetupForm = ({ onNext }) => {
+  const currentContext = useContext(FormContext);
   const {
     values,
     handleSubmit,
@@ -32,7 +28,7 @@ const AccountSetupForm = ({ onNext }) => {
     handleMouseDownPassword,
     renderInput,
     renderDropDown,
-  } = Form(initialFieldValues);
+  } = currentContext;
 
   const { root, margin } = UseStyle();
 

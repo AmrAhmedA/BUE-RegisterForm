@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   Fade,
   Grid,
@@ -8,28 +8,19 @@ import {
   Container,
 } from "@material-ui/core";
 
+import FormContext from "../context/formContext";
 import PropTypes from "prop-types";
 import { Form, UseStyle } from "../form";
 import DatePicker from "../common/datePicker";
-const initialFieldValues = {
-  id: 0,
-  firstname: "",
-  secondname: "",
-  middlename: "",
-  nationality: "",
-  religion: "",
-  gender: "",
-  placeofbirth: "",
-};
+
 const genderItems = ["Male", "Female", "Other"];
 const religionItems = ["Christian", "Muslim", "Jewish", "Other"];
 const nationalityItems = ["Egypt", "Australia"];
 const maritalStatus = ["Single", "Married"];
 
 const PersonalInformationForm = ({ onNext, onBack, activeStep, steps }) => {
-  const { handleSubmit, renderInput, renderDropDown } = Form(
-    initialFieldValues
-  );
+  const currentContext = useContext(FormContext);
+  const { handleSubmit, renderInput, renderDropDown } = currentContext;
 
   const { root } = UseStyle();
 

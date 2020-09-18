@@ -1,8 +1,7 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { useState, useEffect } from "react";
-import PersonalInformationForm from "../forms/personalInformationForm";
-import AccountSetupForm from "../forms/accountSetupForm";
+import { Form } from "../form";
 
 export const useVerticalStyles = makeStyles((theme) => ({
   root: {
@@ -68,21 +67,6 @@ export const getSteps = () => {
 };
 
 export const getStepContent = (stepIndex, handleNext, handleBack, steps) => {
-  switch (stepIndex) {
-    case 0:
-      return <AccountSetupForm onNext={handleNext} />;
-    case 1:
-      return (
-        <PersonalInformationForm
-          onNext={handleNext}
-          onBack={handleBack}
-          stepIndex={stepIndex}
-          steps={steps}
-        />
-      );
-    case 2:
-      return "This is the bit I really care about!";
-    default:
-      return "Unknown stepIndex";
-  }
+  console.log("Test1", stepIndex);
+  return Form(stepIndex, handleNext, handleBack, steps);
 };

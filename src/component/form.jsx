@@ -2,7 +2,26 @@ import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core";
 import Input from "./common/input";
 import DropDownInputMenu from "./common/dropDownInputMenu";
-export const Form = (initialFieldValues) => {
+import FormContext from "./context/formContext";
+import AccountSetupForm from "./forms/accountSetupForm";
+import PersonalInformationForm from "./forms/personalInformationForm";
+const initialFieldValues = {
+  firstname: "",
+  secondname: "",
+  middlename: "",
+  email: "",
+  nationality: "",
+  religion: "",
+  gender: "",
+  placeofbirth: "",
+  idType: "",
+  id: "",
+  password: "",
+  confirmpassword: "",
+  showPassword: false,
+};
+
+export const Form = (stepIndex, handleNext, handleBack, steps) => {
   const [values, setValues] = useState(initialFieldValues);
 
   const handleInputChange = ({ currentTarget: input }) => {
@@ -44,16 +63,43 @@ export const Form = (initialFieldValues) => {
     return <DropDownInputMenu items={items} label={label} id={id} />;
   };
 
-  return {
-    values,
-    setValues,
-    handleInputChange,
-    handleSubmit,
-    handleClickShowPassword,
-    handleMouseDownPassword,
-    renderInput,
-    renderDropDown,
+  const renderSwitch = (stepIndex, handleNext, handleBack, steps) => {
+    switch (stepIndex) {
+      case 0:
+        console.log("A7a");
+        return <AccountSetupForm onNext={handleNext} />;
+      case 1:
+        return (
+          <PersonalInformationForm
+            onNext={handleNext}
+            onBack={handleBack}
+            stepIndex={stepIndex}
+            steps={steps}
+          />
+        );
+      case 2:
+        return "This is the bit I really care about!";
+      default:
+        return "Unknown stepIndex";
+    }
   };
+  return (
+    <FormContext.Provider
+      value={{
+        values,
+        setValues,
+        handleInputChange,
+        handleSubmit,
+        handleClickShowPassword,
+        handleMouseDownPassword,
+        renderInput,
+        renderDropDown,
+      }}
+    >
+      {console.log(stepIndex)}
+      {renderSwitch(stepIndex, handleNext, handleBack, steps)}
+    </FormContext.Provider>
+  );
 };
 
 export const UseStyle = () => {
