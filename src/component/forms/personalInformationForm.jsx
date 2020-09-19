@@ -22,7 +22,7 @@ const PersonalInformationForm = ({ onNext, onBack, activeStep, steps }) => {
   const currentContext = useContext(FormContext);
   const { handleSubmit, renderInput, renderDropDown } = currentContext;
 
-  const { root } = UseStyle();
+  const { root, buttons } = UseStyle();
 
   return (
     // <Paper className={root}>
@@ -119,13 +119,13 @@ const PersonalInformationForm = ({ onNext, onBack, activeStep, steps }) => {
                           alignItems="center"
                         >
                           <Button
+                            className={buttons}
                             variant="contained"
                             color="primary"
                             style={{
                               padding: "5px 25px 8px ",
                               fontSize: "15px",
                               textAlign: "center",
-                              marginRight: "20px",
                             }}
                             onClick={onBack}
                             disabled={activeStep === 0}
@@ -133,6 +133,7 @@ const PersonalInformationForm = ({ onNext, onBack, activeStep, steps }) => {
                             Back
                           </Button>
                           <Button
+                            className={buttons}
                             variant="contained"
                             color="primary"
                             style={{

@@ -135,6 +135,12 @@ export const UseStyle = () => {
       flexWrap: "wrap",
       padding: theme.spacing(5),
     },
+    buttons: {
+      margin: theme.spacing(2),
+      [theme.breakpoints.up("xs")]: {
+        margin: theme.spacing(1),
+      },
+    },
     margin: {
       margin: theme.spacing(2),
     },

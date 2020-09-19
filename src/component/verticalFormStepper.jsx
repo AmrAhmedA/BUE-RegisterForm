@@ -67,14 +67,14 @@ const VerticalFormStepper = ({
                 </Step>
               ))}
             </Stepper>
-            {/* {activeStep === steps.length && (
+            {activeStep === steps.length && (
               <Paper square elevation={0} className={classes.resetContainer}>
                 <p>All steps completed - you&apos;re finished</p>
                 <Button onClick={handleReset} className={classes.button}>
                   Reset
                 </Button>
               </Paper>
-            )} */}
+            )}
           </div>
         </Paper>
       </Grid>
