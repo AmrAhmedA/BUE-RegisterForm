@@ -28,23 +28,17 @@ const VerticalFormStepper = ({
   return (
     <Container fixed maxWidth="md">
       <Grid>
-        <Paper variant="outlined" elevation={2}>
-          <div className={classes.root}>
-            <Stepper activeStep={activeStep} orientation="vertical">
-              {steps.map((label, index) => (
-                <Step key={label}>
-                  <StepLabel>{label}</StepLabel>
-                  <StepContent>
-                    {index === activeStep
-                      ? getStepContent(
-                          activeStep,
-                          handleNext,
-                          handleBack,
-                          steps
-                        )
-                      : null}
-                    {console.log(index)}
-                    {/* <div className={classes.actionsContainer}>
+        <div className={classes.root}>
+          <Stepper activeStep={activeStep} orientation="vertical">
+            {steps.map((label, index) => (
+              <Step key={label}>
+                <StepLabel>{label}</StepLabel>
+                <StepContent>
+                  {index === activeStep
+                    ? getStepContent(activeStep, handleNext, handleBack, steps)
+                    : null}
+                  {console.log(index)}
+                  {/* <div className={classes.actionsContainer}>
                       <div>
                         <Button
                           disabled={activeStep === 0}
@@ -63,20 +57,19 @@ const VerticalFormStepper = ({
                         </Button>
                       </div>
                     </div> */}
-                  </StepContent>
-                </Step>
-              ))}
-            </Stepper>
-            {activeStep === steps.length && (
-              <Paper square elevation={0} className={classes.resetContainer}>
-                <p>All steps completed - you&apos;re finished</p>
-                <Button onClick={handleReset} className={classes.button}>
-                  Reset
-                </Button>
-              </Paper>
-            )}
-          </div>
-        </Paper>
+                </StepContent>
+              </Step>
+            ))}
+          </Stepper>
+          {activeStep === steps.length && (
+            <Paper square elevation={0} className={classes.resetContainer}>
+              <p>All steps completed - you&apos;re finished</p>
+              <Button onClick={handleReset} className={classes.button}>
+                Reset
+              </Button>
+            </Paper>
+          )}
+        </div>
       </Grid>
     </Container>
   );
