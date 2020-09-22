@@ -58,7 +58,6 @@ const useStyles = makeStyles((theme) => ({
   },
   inputInput: {
     padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
     paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
     transition: theme.transitions.create("width"),
     width: "100%",
@@ -163,7 +162,10 @@ const NavBar = () => {
 
   return (
     <div className={classes.grow}>
-      <AppBar position="static">
+      <AppBar
+        position="sticky"
+        style={{ color: "black", backgroundColor: "transparent" }}
+      >
         <Toolbar>
           <IconButton
             edge="start"
