@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import PropTypes from 'prop-types';
 import { useMediaQuery, withWidth, createMuiTheme } from '@material-ui/core/';
 import { StepperContent } from "./component/common/stepperContent"
+import NavBar from './component/navBar';
 // import Child from './component/context/Child';
 // import Parent from './component/context/Parent';
 // import ChildClass from './component/context/childClass';
@@ -41,6 +42,7 @@ function App(props) {
     <div>
       {console.log("App - Rendered")}
       {/* {console.log(matches)} */}
+      <NavBar />
       {matches ? <VerticalFormStepper {...stepContent} /> :
         <HorizontalFormStepper {...stepContent} />}
     </div>
