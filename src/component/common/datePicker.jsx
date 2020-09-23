@@ -25,6 +25,7 @@ const DatePicker = () => {
         label="Date Of Birth"
         value={selectedDate}
         onChange={handleDateChange}
+        InputLabelProps={{ shrink: true }}
         KeyboardButtonProps={{
           "aria-label": "change date",
         }}
