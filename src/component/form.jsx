@@ -52,6 +52,10 @@ export const Form = (stepIndex, handleNext, handleBack, steps) => {
     console.log("Submitted");
   };
 
+  const validate = () => {};
+
+  const handleValidate = ({ name, value }) => {};
+
   const handleClickShowPassword = () => {
     setValues({ ...values, showPassword: !values.showPassword });
   };
