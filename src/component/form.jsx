@@ -80,7 +80,7 @@ export const Form = (stepIndex, handleNext, handleBack, steps) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const errors = validate();
-    setErrors({ errors: errors || {} });
+    setErrors(errors || {});
     console.log(errors);
 
     if (errors) return;
