@@ -14,11 +14,12 @@ const Input = (props) => {
     error,
     ...rest
   } = props;
+  console.log("Input", error);
+
   return (
     <React.Fragment>
       <FormControl fullWidth>
         <TextField
-          {...rest}
           variant="outlined"
           size="small"
           id={id}
@@ -26,9 +27,11 @@ const Input = (props) => {
           value={value}
           label={label}
           placeholder={placeholder}
-          error={error || true}
-          helperText={"" || helperText}
           onChange={onChange}
+          // helperText={"" || helperText}
+          // error={error || true}
+          {...(error && { error: true, helperText: error })}
+          {...rest}
         />
       </FormControl>
     </React.Fragment>

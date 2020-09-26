@@ -26,7 +26,12 @@ const initialFieldValues = {
 
 export const Form = (stepIndex, handleNext, handleBack, steps) => {
   const [values, setValues] = useState(initialFieldValues);
-  const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState({
+    email: "a",
+    id: "a",
+    password: "",
+    confirmpassword: "",
+  });
 
   const handleInputChange = ({ currentTarget: input }) => {
     const { name, value } = input;
@@ -50,17 +55,16 @@ export const Form = (stepIndex, handleNext, handleBack, steps) => {
   //   // setValues({ ...values, [name]: date });
   // };
 
-  const handleValidate = ({ name, value }) => {};
+  // const handleValidate = ({ name, value }) => {};
 
   const validate = () => {
     const errors = {};
 
-    if (values.email.trim() === "") {
-      errors.email = "Email is required";
-    }
-
     if (values.id.trim() === "") {
       errors.id = "ID is required";
+    }
+    if (values.email.trim() === "") {
+      errors.email = "Email is required";
     }
 
     if (values.password.trim() === "") {
@@ -77,6 +81,8 @@ export const Form = (stepIndex, handleNext, handleBack, steps) => {
     e.preventDefault();
     const errors = validate();
     setErrors({ errors: errors || {} });
+    console.log(errors);
+
     if (errors) return;
     console.log("Submitted");
   };
@@ -90,15 +96,16 @@ export const Form = (stepIndex, handleNext, handleBack, steps) => {
   };
 
   const renderInput = (id, name, label, type, helperText) => {
+    console.log(errors[name]);
     return (
       <Input
         id={id}
         name={name}
         label={label}
         type={type}
+        onChange={handleInputChange}
         helperText={helperText}
         value={values[name]}
-        onChange={handleInputChange}
         error={errors[name]}
       />
     );
