@@ -5,6 +5,7 @@ import DropDownInputMenu from "./common/dropDownInputMenu";
 import FormContext from "./context/formContext";
 import AccountSetupForm from "./forms/accountSetupForm";
 import PersonalInformationForm from "./forms/personalInformationForm";
+// import ContactInformationForm from "./forms/contactInformationForm";
 const initialFieldValues = {
   firstname: "",
   secondname: "",
@@ -25,6 +26,7 @@ const initialFieldValues = {
 
 export const Form = (stepIndex, handleNext, handleBack, steps) => {
   const [values, setValues] = useState(initialFieldValues);
+  const [errors, setErrors] = useState({});
 
   const handleInputChange = ({ currentTarget: input }) => {
     const { name, value } = input;
@@ -47,14 +49,37 @@ export const Form = (stepIndex, handleNext, handleBack, steps) => {
   //   console.log(date);
   //   // setValues({ ...values, [name]: date });
   // };
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Submitted");
-  };
-
-  const validate = () => {};
 
   const handleValidate = ({ name, value }) => {};
+
+  const validate = () => {
+    const errors = {};
+
+    if (values.email.trim() === "") {
+      errors.email = "Email is required";
+    }
+
+    if (values.id.trim() === "") {
+      errors.id = "ID is required";
+    }
+
+    if (values.password.trim() === "") {
+      errors.password = "Password is required";
+    }
+
+    if (values.confirmpassword.trim() === "") {
+      errors.confirmpassword = "Confirm Password is required";
+    }
+    return Object.keys(errors).length === 0 ? null : errors;
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const errors = validate();
+    setErrors({ errors: errors || {} });
+    if (errors) return;
+    console.log("Submitted");
+  };
 
   const handleClickShowPassword = () => {
     setValues({ ...values, showPassword: !values.showPassword });
@@ -74,6 +99,7 @@ export const Form = (stepIndex, handleNext, handleBack, steps) => {
         helperText={helperText}
         value={values[name]}
         onChange={handleInputChange}
+        error={errors[name]}
       />
     );
   };
@@ -95,6 +121,7 @@ export const Form = (stepIndex, handleNext, handleBack, steps) => {
     console.log("renderSwitch - Rendered -----------");
     switch (stepIndex) {
       case 0:
+        // return <ContactInformationForm onNext={handleNext} />;
         return <AccountSetupForm onNext={handleNext} />;
       case 1:
         return (

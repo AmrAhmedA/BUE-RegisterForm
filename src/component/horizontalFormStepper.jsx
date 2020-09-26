@@ -10,7 +10,7 @@ import {
   getStepContent,
   getSteps,
   useHorizontalStyles,
-} from "./common/stepperContent";
+} from "./stepperContent";
 
 const HorizontalFormStepper = ({
   activeStep,

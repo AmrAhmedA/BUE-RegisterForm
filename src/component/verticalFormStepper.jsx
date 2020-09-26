@@ -9,11 +9,7 @@ import {
   Grid,
   Container,
 } from "@material-ui/core/";
-import {
-  getStepContent,
-  getSteps,
-  useVerticalStyles,
-} from "./common/stepperContent";
+import { getStepContent, getSteps, useVerticalStyles } from "./stepperContent";
 
 const VerticalFormStepper = ({
   activeStep,

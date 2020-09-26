@@ -4,7 +4,7 @@ import VerticalFormStepper from "./component/verticalFormStepper"
 import 'bootstrap/dist/css/bootstrap.css';
 import PropTypes from 'prop-types';
 import { useMediaQuery, withWidth, createMuiTheme } from '@material-ui/core/';
-import { StepperContent } from "./component/common/stepperContent"
+import { StepperContent } from "./component/stepperContent"
 import NavBar from './component/navBar';
 // import Child from './component/context/Child';
 // import Parent from './component/context/Parent';

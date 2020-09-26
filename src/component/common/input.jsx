@@ -11,6 +11,7 @@ const Input = (props) => {
     helperText,
     placeholder,
     onChange,
+    error,
     ...rest
   } = props;
   return (
@@ -25,6 +26,7 @@ const Input = (props) => {
           value={value}
           label={label}
           placeholder={placeholder}
+          error={error || true}
           helperText={"" || helperText}
           onChange={onChange}
         />

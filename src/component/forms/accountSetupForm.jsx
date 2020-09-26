@@ -126,7 +126,7 @@ const AccountSetupForm = ({ onNext }) => {
                               fontSize: "15px",
                               textAlign: "center",
                             }}
-                            onClick={onNext}
+                            onClick={handleSubmit}
                           >
                             Next
                           </Button>
