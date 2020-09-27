@@ -25,17 +25,22 @@ const initialFieldValues = {
   showPassword: false,
 };
 
-const schema = Joi.object({
-  id: Joi.string().alphanum().min(15).max(16).required(),
-  password: Joi.string().pattern(new RegExp("^[a-zA-Z0-9]{3,30}$")),
-  confirmpassword: Joi.ref("password"),
+const schema = {
+  id: Joi.string().alphanum().min(15).max(16).required().label("ID Number"),
   email: Joi.string()
+    .min(6)
     .required()
     .email({
       minDomainSegments: 2,
       tlds: { allow: ["com", "net"] },
-    }),
-});
+    })
+    .label("Email"),
+  password: Joi.string()
+    .required()
+    .pattern(new RegExp("^[a-zA-Z0-9]{6,30}$"))
+    .label("Password"),
+  confirmpassword: Joi.string().required().valid(Joi.ref("password")),
+};
 
 export const Form = (stepIndex, handleNext, handleBack, steps) => {
   const [values, setValues] = useState(initialFieldValues);
@@ -55,41 +60,23 @@ export const Form = (stepIndex, handleNext, handleBack, steps) => {
     });
   };
 
-  const validateProperty = (input) => {
-    if (input.name === "email") {
-      if (input.value.trim() === "") return "Email is required";
-    }
-    if (input.name === "id") {
-      if (input.value.trim() === "") return "id is required";
-    }
-    if (input.name === "password") {
-      if (input.value.trim() === "") return "password is required";
-    }
-    if (input.name === "confirmpassword") {
-      if (input.value.trim() === "") return "confirmpassword is required";
-    }
+  const validateProperty = ({ name, value }) => {
+    const obj = { [name]: value };
+    const currentSchema = Joi.object({ [name]: schema[name] });
+    console.log(schema[name]);
+    const { error } = currentSchema.validate(obj);
+    console.log(error);
+    return error ? error.details[0].message : null;
   };
 
   const validate = () => {
-    const result = schema.validate(values);
-    console.log(result);
+    const currentSchema = Joi.object({ schema });
+    const result = currentSchema.validate(values, { abortEarly: false });
+    // console.log(result.error);
+    if (!result.error) return null;
     const errors = {};
-
-    if (values.id.trim() === "") {
-      errors.id = "ID is required";
-    }
-    if (values.email.trim() === "") {
-      errors.email = "Email is required";
-    }
-
-    if (values.password.trim() === "") {
-      errors.password = "Password is required";
-    }
-
-    if (values.confirmpassword.trim() === "") {
-      errors.confirmpassword = "Confirm Password is required";
-    }
-    return Object.keys(errors).length === 0 ? null : errors;
+    for (let item of result.error.details) errors[item.path[0]] = item.message;
+    return errors;
   };
 
   const handleSubmit = (e) => {
