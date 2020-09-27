@@ -41,8 +41,8 @@ const schema = {
     .label("Password"),
   confirmpassword: Joi.string()
     .required()
-    .pattern(new RegExp("^[a-zA-Z0-9]{6,30}$"))
-    .label("Password"),
+    .valid(Joi.ref("password"))
+    .label("ConfirmPassword"),
 };
 
 export const Form = (stepIndex, handleNext, handleBack, steps) => {
@@ -66,9 +66,9 @@ export const Form = (stepIndex, handleNext, handleBack, steps) => {
   const validateProperty = ({ name, value }) => {
     const obj = { [name]: value };
     const currentSchema = Joi.object({ [name]: schema[name] });
-    console.log(schema[name]);
+    // console.log(schema[name]);
     const { error } = currentSchema.validate(obj);
-    console.log(error);
+    // console.log(error);
     return error ? error.details[0].message : null;
   };
 
@@ -94,6 +94,7 @@ export const Form = (stepIndex, handleNext, handleBack, steps) => {
 
   const handleInputChange = ({ currentTarget: input }) => {
     const errorMessage = validateProperty(input);
+    console.log(errors[input.name]);
 
     if (errorMessage) errors[input.name] = errorMessage;
     else delete errors[input.name];
