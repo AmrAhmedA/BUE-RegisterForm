@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core";
+import Joi from "joi";
 import Input from "./common/input";
 import DropDownInputMenu from "./common/dropDownInputMenu";
 import FormContext from "./context/formContext";
@@ -24,6 +25,18 @@ const initialFieldValues = {
   showPassword: false,
 };
 
+const schema = Joi.object({
+  id: Joi.string().alphanum().min(15).max(16).required(),
+  password: Joi.string().pattern(new RegExp("^[a-zA-Z0-9]{3,30}$")),
+  confirmpassword: Joi.ref("password"),
+  email: Joi.string()
+    .required()
+    .email({
+      minDomainSegments: 2,
+      tlds: { allow: ["com", "net"] },
+    }),
+});
+
 export const Form = (stepIndex, handleNext, handleBack, steps) => {
   const [values, setValues] = useState(initialFieldValues);
   const [errors, setErrors] = useState({
@@ -42,11 +55,6 @@ export const Form = (stepIndex, handleNext, handleBack, steps) => {
     });
   };
 
-  // const handleDateChange = (date) => {
-  //   console.log(date);
-  //   // setValues({ ...values, [name]: date });
-  // };
-
   const validateProperty = (input) => {
     if (input.name === "email") {
       if (input.value.trim() === "") return "Email is required";
@@ -63,6 +71,8 @@ export const Form = (stepIndex, handleNext, handleBack, steps) => {
   };
 
   const validate = () => {
+    const result = schema.validate(values);
+    console.log(result);
     const errors = {};
 
     if (values.id.trim() === "") {
