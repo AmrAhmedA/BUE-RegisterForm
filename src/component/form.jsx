@@ -11,7 +11,6 @@ const initialFieldValues = {
   firstname: "",
   secondname: "",
   middlename: "",
-  email: "",
   nationality: "",
   religion: "",
   gender: "",
@@ -19,6 +18,7 @@ const initialFieldValues = {
   maritalstatus: "",
   dateofbirth: new Date("2020-01-01T21:11:54"),
   idtype: "",
+  email: "",
   id: "",
   password: "",
   confirmpassword: "",
@@ -39,7 +39,10 @@ const schema = {
     .required()
     .pattern(new RegExp("^[a-zA-Z0-9]{6,30}$"))
     .label("Password"),
-  confirmpassword: Joi.string().required().valid(Joi.ref("password")),
+  confirmpassword: Joi.string()
+    .required()
+    .pattern(new RegExp("^[a-zA-Z0-9]{6,30}$"))
+    .label("Password"),
 };
 
 export const Form = (stepIndex, handleNext, handleBack, steps) => {
@@ -70,7 +73,7 @@ export const Form = (stepIndex, handleNext, handleBack, steps) => {
   };
 
   const validate = () => {
-    const currentSchema = Joi.object({ schema });
+    const currentSchema = Joi.object(schema);
     const result = currentSchema.validate(values, { abortEarly: false });
     // console.log(result.error);
     if (!result.error) return null;
@@ -177,6 +180,7 @@ export const Form = (stepIndex, handleNext, handleBack, steps) => {
         handleMouseDownPassword,
         renderInput,
         renderDropDown,
+        validate,
       }}
     >
       {/* {console.log("Form - Rendered", stepIndex)} */}

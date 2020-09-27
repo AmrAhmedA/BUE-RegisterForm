@@ -28,6 +28,7 @@ const AccountSetupForm = ({ onNext }) => {
     handleMouseDownPassword,
     renderInput,
     renderDropDown,
+    // validate,
   } = currentContext;
 
   const { root, margin } = UseStyle();
@@ -36,7 +37,7 @@ const AccountSetupForm = ({ onNext }) => {
     <Container fixed maxWidth="md">
       <Fade in={true}>
         <Paper variant="outlined" elevation={2}>
-          <form className={root} onSubmit={handleSubmit}>
+          <form className={root}>
             <Grid
               container
               direction="row"
@@ -119,6 +120,7 @@ const AccountSetupForm = ({ onNext }) => {
                           alignItems="flex-end"
                         >
                           <Button
+                            // disabled={validate()}
                             variant="contained"
                             color="primary"
                             style={{
