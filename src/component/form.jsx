@@ -27,19 +27,11 @@ const initialFieldValues = {
 export const Form = (stepIndex, handleNext, handleBack, steps) => {
   const [values, setValues] = useState(initialFieldValues);
   const [errors, setErrors] = useState({
-    email: "a",
-    id: "a",
+    email: "",
+    id: "",
     password: "",
     confirmpassword: "",
   });
-
-  const handleInputChange = ({ currentTarget: input }) => {
-    const { name, value } = input;
-    setValues({
-      ...values,
-      [name]: value,
-    });
-  };
 
   const handleDropDownChange = (event) => {
     const { name, value } = event.target;
@@ -55,7 +47,20 @@ export const Form = (stepIndex, handleNext, handleBack, steps) => {
   //   // setValues({ ...values, [name]: date });
   // };
 
-  // const handleValidate = ({ name, value }) => {};
+  const validateProperty = (input) => {
+    if (input.name === "email") {
+      if (input.value.trim() === "") return "Email is required";
+    }
+    if (input.name === "id") {
+      if (input.value.trim() === "") return "id is required";
+    }
+    if (input.name === "password") {
+      if (input.value.trim() === "") return "password is required";
+    }
+    if (input.name === "confirmpassword") {
+      if (input.value.trim() === "") return "confirmpassword is required";
+    }
+  };
 
   const validate = () => {
     const errors = {};
@@ -85,6 +90,25 @@ export const Form = (stepIndex, handleNext, handleBack, steps) => {
 
     if (errors) return;
     console.log("Submitted");
+  };
+
+  const handleInputChange = ({ currentTarget: input }) => {
+    const errorMessage = validateProperty(input);
+
+    if (errorMessage) errors[input.name] = errorMessage;
+    else delete errors[input.name];
+
+    const { name, value } = input;
+
+    setErrors({
+      ...errors,
+      [name]: errorMessage,
+    });
+
+    setValues({
+      ...values,
+      [name]: value,
+    });
   };
 
   const handleClickShowPassword = () => {
@@ -125,7 +149,7 @@ export const Form = (stepIndex, handleNext, handleBack, steps) => {
   };
 
   const renderSwitch = (stepIndex, handleNext, handleBack, steps) => {
-    console.log("renderSwitch - Rendered -----------");
+    // console.log("renderSwitch - Rendered -----------");
     switch (stepIndex) {
       case 0:
         // return <ContactInformationForm onNext={handleNext} />;
@@ -158,7 +182,7 @@ export const Form = (stepIndex, handleNext, handleBack, steps) => {
         renderDropDown,
       }}
     >
-      {console.log("Form - Rendered", stepIndex)}
+      {/* {console.log("Form - Rendered", stepIndex)} */}
       {renderSwitch(stepIndex, handleNext, handleBack, steps)}
     </FormContext.Provider>
   );
