@@ -6,9 +6,9 @@ import {
   KeyboardDatePicker,
 } from "@material-ui/pickers";
 const DatePicker = () => {
-  const [selectedDate, setSelectedDate] = React.useState(
-    new Date("2020-01-01T21:11:54")
-  );
+  const today = new Date();
+
+  const [selectedDate, setSelectedDate] = React.useState(null);
 
   const handleDateChange = (date) => {
     setSelectedDate(date);
@@ -16,16 +16,17 @@ const DatePicker = () => {
   return (
     <MuiPickersUtilsProvider fullwidth utils={DateFnsUtils}>
       <KeyboardDatePicker
+        // margin="normal"
         fullWidth
-        disableToolbar
-        variant="outlined"
+        size="small"
+        inputVariant="outlined"
         format="MM/dd/yyyy"
-        margin="normal"
         id="date-picker-inline"
+        placeholder="Date Of Birth"
         label="Date Of Birth"
         value={selectedDate}
+        maxDate={today}
         onChange={handleDateChange}
-        InputLabelProps={{ shrink: true }}
         KeyboardButtonProps={{
           "aria-label": "change date",
         }}
