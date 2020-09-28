@@ -66,6 +66,6 @@ export const getSteps = () => {
 };
 
 export const getStepContent = (stepIndex, handleNext, handleBack, steps) => {
-  // console.log("StepperContent - Rendered");
+  console.log("StepperContent - Rendered");
   return Form(stepIndex, handleNext, handleBack, steps);
 };

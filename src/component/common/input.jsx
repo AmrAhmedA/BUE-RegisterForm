@@ -16,7 +16,7 @@ const Input = (props) => {
     maxLength,
     ...rest
   } = props;
-  console.log("Input", error);
+  console.log("Input -Rendered");
 
   return (
     <React.Fragment>

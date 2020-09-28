@@ -20,7 +20,7 @@ const VerticalFormStepper = ({
   const classes = useVerticalStyles();
   const steps = getSteps();
 
-  // console.log("VerticalFormStepper - Rendered");
+  console.log("VerticalFormStepper - Rendered");
   return (
     <Container fixed maxWidth="md">
       <Grid>

@@ -33,6 +33,9 @@ const AccountSetupForm = ({ onNext }) => {
 
   const { root, margin } = UseStyle();
 
+  console.log("AccountSetupForm - Rendered");
+  console.log("###");
+
   return (
     <Container fixed maxWidth="md">
       <Fade in={true}>

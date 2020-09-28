@@ -35,28 +35,23 @@ const schema = {
       tlds: { allow: ["com", "net"] },
     })
     .label("Email"),
-  password: Joi.string().min(3).max(15).required().label("Password"),
+  password: Joi.string().min(5).max(15).required().label("Password"),
   confirmpassword: Joi.any()
     .valid(Joi.ref("password"))
     .required()
     .options({
       language: {
         any: {
-          allowOnly: "Passwords do not match",
+          allowOnly: " do not match",
         },
       },
     })
-    .label("ConfirmPassword"),
+    .label("Passwords"),
 };
 
 export const Form = (stepIndex, handleNext, handleBack, steps) => {
   const [values, setValues] = useState(initialFieldValues);
-  const [errors, setErrors] = useState({
-    email: "",
-    id: "",
-    password: "",
-    confirmpassword: "",
-  });
+  const [errors, setErrors] = useState({});
 
   const handleDropDownChange = (event) => {
     const { name, value } = event.target;
@@ -98,7 +93,7 @@ export const Form = (stepIndex, handleNext, handleBack, steps) => {
 
   const handleInputChange = ({ currentTarget: input }) => {
     const errorMessage = validateProperty(input);
-    console.log(errors[input.name]);
+    console.log(errorMessage);
 
     if (errorMessage) errors[input.name] = errorMessage;
     else delete errors[input.name];
@@ -125,7 +120,7 @@ export const Form = (stepIndex, handleNext, handleBack, steps) => {
   };
 
   const renderInput = (id, name, label, type, helperText, maxLength) => {
-    console.log(errors[name]);
+    // console.log(errors[name]);
     return (
       <Input
         id={id}

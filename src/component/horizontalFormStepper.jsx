@@ -20,7 +20,7 @@ const HorizontalFormStepper = ({
 }) => {
   const classes = useHorizontalStyles();
   const steps = getSteps();
-  // console.log("HorizontalFormStepper - Rendered");
+  console.log("HorizontalFormStepper - Rendered");
 
   return (
     <div className={classes.root}>
