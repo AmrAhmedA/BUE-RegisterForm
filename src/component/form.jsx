@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core";
-import Joi from "joi";
+import Joi from "joi-browser";
 import Input from "./common/input";
 import DropDownInputMenu from "./common/dropDownInputMenu";
 import FormContext from "./context/formContext";
@@ -26,18 +26,7 @@ const initialFieldValues = {
 };
 
 const schema = {
-  id: Joi.string()
-    .alphanum()
-    .min(15)
-    .max(16)
-    .required()
-    .label("ID Number")
-    .messages({
-      "string.base": `"username" should be a type of 'text'`,
-      "string.min": "firstMsg",
-      "string.max": "second msg",
-      "any.empty": "third msg",
-    }),
+  id: Joi.string().alphanum().min(16).max(16).required().label("ID Number"),
   email: Joi.string()
     .min(6)
     .required()
@@ -46,13 +35,17 @@ const schema = {
       tlds: { allow: ["com", "net"] },
     })
     .label("Email"),
-  password: Joi.string()
-    .required()
-    .pattern(new RegExp("^[a-zA-Z0-9]{6,30}$"))
-    .label("Password"),
-  confirmpassword: Joi.string()
-    .required()
+  password: Joi.string().min(3).max(15).required().label("Password"),
+  confirmpassword: Joi.any()
     .valid(Joi.ref("password"))
+    .required()
+    .options({
+      language: {
+        any: {
+          allowOnly: "Passwords do not match",
+        },
+      },
+    })
     .label("ConfirmPassword"),
 };
 
