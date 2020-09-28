@@ -50,7 +50,7 @@ const AccountSetupForm = ({ onNext }) => {
                     {renderDropDown(items, "ID Type", "idtype", "idtype")}
                   </Grid>
                   <Grid item xs={12} sm={6} md={6} lg={6} xl={6}>
-                    {renderInput("id", "id", "ID Number", "text", "")}
+                    {renderInput("id", "id", "ID Number", "text", "", 16)}
                   </Grid>
                   <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
                     {renderInput(
@@ -58,7 +58,8 @@ const AccountSetupForm = ({ onNext }) => {
                       "email",
                       "Email",
                       "text",
-                      "You can use letters, numbers and periods"
+                      "You can use letters, numbers and periods",
+                      20
                     )}
                   </Grid>
                   <Grid item xs={12} sm={5} md={5} lg={5} xl={5}>
@@ -67,7 +68,8 @@ const AccountSetupForm = ({ onNext }) => {
                       "password",
                       "Password",
                       values.showPassword ? "text" : "password",
-                      ""
+                      "",
+                      30
                     )}
                   </Grid>
                   <Grid item xs={12} sm={5} md={5} lg={5} xl={5}>
@@ -76,7 +78,8 @@ const AccountSetupForm = ({ onNext }) => {
                       "confirmpassword",
                       "Confirm",
                       values.showPassword ? "text" : "password",
-                      ""
+                      "",
+                      30
                     )}
                   </Grid>
                   <Grid item xs={2}>

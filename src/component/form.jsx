@@ -26,7 +26,18 @@ const initialFieldValues = {
 };
 
 const schema = {
-  id: Joi.string().alphanum().min(15).max(16).required().label("ID Number"),
+  id: Joi.string()
+    .alphanum()
+    .min(15)
+    .max(16)
+    .required()
+    .label("ID Number")
+    .messages({
+      "string.base": `"username" should be a type of 'text'`,
+      "string.min": "firstMsg",
+      "string.max": "second msg",
+      "any.empty": "third msg",
+    }),
   email: Joi.string()
     .min(6)
     .required()
@@ -120,7 +131,7 @@ export const Form = (stepIndex, handleNext, handleBack, steps) => {
     event.preventDefault();
   };
 
-  const renderInput = (id, name, label, type, helperText) => {
+  const renderInput = (id, name, label, type, helperText, maxLength) => {
     console.log(errors[name]);
     return (
       <Input
@@ -130,6 +141,7 @@ export const Form = (stepIndex, handleNext, handleBack, steps) => {
         type={type}
         onChange={handleInputChange}
         helperText={helperText}
+        maxLength={maxLength}
         value={values[name]}
         error={errors[name]}
       />

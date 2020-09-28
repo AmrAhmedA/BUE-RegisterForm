@@ -13,6 +13,7 @@ const Input = (props) => {
     placeholder,
     onChange,
     error,
+    maxLength,
     ...rest
   } = props;
   console.log("Input", error);
@@ -33,6 +34,7 @@ const Input = (props) => {
           // error={error || true}
           {...(error && { error: true, helperText: error })}
           {...rest}
+          inputProps={{ maxLength: maxLength }}
         />
       </FormControl>
     </React.Fragment>
