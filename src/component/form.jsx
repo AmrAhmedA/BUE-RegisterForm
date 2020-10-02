@@ -53,6 +53,13 @@ export const Form = (stepIndex, handleNext, handleBack, steps) => {
   const [values, setValues] = useState(initialFieldValues);
   const [errors, setErrors] = useState({});
 
+  const [selectedDate, setSelectedDate] = React.useState(null);
+
+  // Setting the date as default computed property
+  // const handleDateChange = (date) => {
+  //   setSelectedDate(date);
+  // };
+
   const handleDropDownChange = (event) => {
     const { name, value } = event.target;
     console.log(value, name);
