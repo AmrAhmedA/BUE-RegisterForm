@@ -55,11 +55,10 @@ const UseStyles = makeStyles((theme) => ({
   },
   footer: {
     marginTop: theme.spacing(5),
-    marginBottom: theme.spacing(5),
   },
   listItems: {
     display: "inline",
-    padding: theme.spacing(0.8),
+    padding: theme.spacing(0.5),
     textDecoration: "underline",
   },
   item: {
@@ -76,7 +75,8 @@ const UseStyles = makeStyles((theme) => ({
     },
   },
   socialmedia: {
-    padding: theme.spacing(0.5),
+    display: "inline",
+    padding: theme.spacing(0.2),
   },
 }));
 
@@ -160,6 +160,7 @@ const Footer = () => {
                       Privacy
                     </a>
                   </li>
+                  <br></br>
                   <li className={classes.listItems}>
                     <a
                       className={classes.anchor}
@@ -176,12 +177,33 @@ const Footer = () => {
                       Social Media Hub
                     </a>
                   </li>
+                  <li className={classes.socialmedia}>
+                    <a href="https://www.facebook.com/amrahmedgewaly/">
+                      <img src={FacebookLogo} alt="" width="20px" />
+                    </a>
+                  </li>
+                  <li className={classes.socialmedia}>
+                    <a href="https://www.facebook.com/amrahmedgewaly/">
+                      <img src={TwitterLogo} alt="" width="20px" />
+                    </a>
+                  </li>
+
+                  <li className={classes.socialmedia}>
+                    <a href="https://www.facebook.com/amrahmedgewaly/">
+                      <img src={YoutubeLogo} alt="" width="20px" />
+                    </a>
+                  </li>
+                  <li className={classes.socialmedia}>
+                    <a href="https://www.facebook.com/amrahmedgewaly/">
+                      <img src={linkedInLogo} alt="" width="20px" />
+                    </a>
+                  </li>
                 </ul>
               </Typography>
             </Grid>
             <Grid
               container
-              direction="column"
+              direction="row"
               justify="flex-start"
               alignItems="flex-start"
               item
@@ -191,31 +213,6 @@ const Footer = () => {
               lg={2}
               xl={2}
             >
-              <a
-                className={classes.socialmedia}
-                href="https://www.facebook.com/amrahmedgewaly/"
-              >
-                <img src={FacebookLogo} alt="" width="30px" />
-              </a>
-              <a
-                className={classes.socialmedia}
-                href="https://www.facebook.com/amrahmedgewaly/"
-              >
-                <img src={TwitterLogo} alt="" width="30px" />
-              </a>
-              <a
-                className={classes.socialmedia}
-                href="https://www.facebook.com/amrahmedgewaly/"
-              >
-                <img src={YoutubeLogo} alt="" width="30px" />
-              </a>
-              <a
-                className={classes.socialmedia}
-                href="https://www.facebook.com/amrahmedgewaly/"
-              >
-                <img src={linkedInLogo} alt="" width="30px" />
-              </a>
-
               <ul className="list-unstyled">
                 <Typography variant="h4">
                   <li className={classes.item}>
