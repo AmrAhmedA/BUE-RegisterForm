@@ -168,6 +168,14 @@ const Footer = () => {
                       Terms &amp; conditions
                     </a>
                   </li>
+                  <li className={classes.listItems}>
+                    <a
+                      className={classes.anchor}
+                      href="https://www.facebook.com/amrahmedgewaly/"
+                    >
+                      Social Media Hub
+                    </a>
+                  </li>
                 </ul>
               </Typography>
             </Grid>
