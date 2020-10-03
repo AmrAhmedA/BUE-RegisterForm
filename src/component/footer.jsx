@@ -11,7 +11,10 @@ import {
   Divider,
 } from "@material-ui/core";
 import BueLogo from "../images/bue eagle 2.bcb94f54.png";
-
+import linkedInLogo from "../images/iconfinder_social-linkedin-circle_771370.png";
+import FacebookLogo from "../images/f_logo_RGB-Blue_1024.png";
+import TwitterLogo from "../images/Twitter_Social_Icon_Circle_Color.svg";
+import YoutubeLogo from "../images/youtube_social_circle_red.png";
 const theme = createMuiTheme();
 
 theme.typography.h3 = {
@@ -72,6 +75,9 @@ const UseStyles = makeStyles((theme) => ({
       textDecoration: "none",
     },
   },
+  socialmedia: {
+    padding: theme.spacing(0.5),
+  },
 }));
 
 const Footer = () => {
@@ -102,35 +108,63 @@ const Footer = () => {
                 THE BRITISH UNIVERSITY IN EGYPT
               </Typography>
               <Typography variant="h5">
+                LSuez Rd, Al Shorouk, Cairo Governorate, Egypt
+              </Typography>
+              <Typography variant="h5">
                 <ul className="list-unstyled">
                   <li className={classes.listItems}>
-                    <a href="https://www.facebook.com/amrahmedgewaly/">Visit</a>
+                    <a
+                      className={classes.anchor}
+                      href="https://www.facebook.com/amrahmedgewaly/"
+                    >
+                      Visit
+                    </a>
                   </li>
                   <li className={classes.listItems}>
-                    <a href="https://www.facebook.com/amrahmedgewaly/">Map</a>
+                    <a
+                      className={classes.anchor}
+                      href="https://www.facebook.com/amrahmedgewaly/"
+                    >
+                      Map
+                    </a>
                   </li>
                   <li className={classes.listItems}>
-                    <a href="https://www.facebook.com/amrahmedgewaly/">
+                    <a
+                      className={classes.anchor}
+                      href="https://www.facebook.com/amrahmedgewaly/"
+                    >
                       Events
                     </a>
                   </li>
                   <li className={classes.listItems}>
-                    <a href="https://www.facebook.com/amrahmedgewaly/">
+                    <a
+                      className={classes.anchor}
+                      href="https://www.facebook.com/amrahmedgewaly/"
+                    >
                       People
                     </a>
                   </li>
                   <li className={classes.listItems}>
-                    <a href="https://www.facebook.com/amrahmedgewaly/">
+                    <a
+                      className={classes.anchor}
+                      href="https://www.facebook.com/amrahmedgewaly/"
+                    >
                       Contract
                     </a>
                   </li>
                   <li className={classes.listItems}>
-                    <a href="https://www.facebook.com/amrahmedgewaly/">
+                    <a
+                      className={classes.anchor}
+                      href="https://www.facebook.com/amrahmedgewaly/"
+                    >
                       Privacy
                     </a>
                   </li>
                   <li className={classes.listItems}>
-                    <a href="https://www.facebook.com/amrahmedgewaly/">
+                    <a
+                      className={classes.anchor}
+                      href="https://www.facebook.com/amrahmedgewaly/"
+                    >
                       Terms &amp; conditions
                     </a>
                   </li>
@@ -149,6 +183,31 @@ const Footer = () => {
               lg={2}
               xl={2}
             >
+              <a
+                className={classes.socialmedia}
+                href="https://www.facebook.com/amrahmedgewaly/"
+              >
+                <img src={FacebookLogo} alt="" width="30px" />
+              </a>
+              <a
+                className={classes.socialmedia}
+                href="https://www.facebook.com/amrahmedgewaly/"
+              >
+                <img src={TwitterLogo} alt="" width="30px" />
+              </a>
+              <a
+                className={classes.socialmedia}
+                href="https://www.facebook.com/amrahmedgewaly/"
+              >
+                <img src={YoutubeLogo} alt="" width="30px" />
+              </a>
+              <a
+                className={classes.socialmedia}
+                href="https://www.facebook.com/amrahmedgewaly/"
+              >
+                <img src={linkedInLogo} alt="" width="30px" />
+              </a>
+
               <ul className="list-unstyled">
                 <Typography variant="h4">
                   <li className={classes.item}>
