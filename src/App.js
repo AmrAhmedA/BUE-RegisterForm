@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import { useMediaQuery, withWidth, createMuiTheme } from '@material-ui/core/';
 import { StepperContent } from "./component/stepperContent"
 import NavBar from './component/navBar';
+import Footer from './component/footer';
 // import Child from './component/context/Child';
 // import Parent from './component/context/Parent';
 // import ChildClass from './component/context/childClass';
@@ -45,6 +46,7 @@ function App(props) {
       <NavBar />
       {matches ? <VerticalFormStepper {...stepContent} /> :
         <HorizontalFormStepper {...stepContent} />}
+      <Footer />
     </div>
   );
 

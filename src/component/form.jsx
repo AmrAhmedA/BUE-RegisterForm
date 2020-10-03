@@ -53,7 +53,7 @@ export const Form = (stepIndex, handleNext, handleBack, steps) => {
   const [values, setValues] = useState(initialFieldValues);
   const [errors, setErrors] = useState({});
 
-  const [selectedDate, setSelectedDate] = React.useState(null);
+  // const [selectedDate, setSelectedDate] = React.useState(null);
 
   // Setting the date as default computed property
   // const handleDateChange = (date) => {
