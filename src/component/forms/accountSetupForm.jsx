@@ -37,7 +37,7 @@ const AccountSetupForm = ({ onNext }) => {
   console.log("###");
 
   return (
-    <Container fixed maxWidth="md">
+    <Container maxWidth="md">
       <Fade in={true}>
         <Paper variant="outlined" elevation={2}>
           <form className={root}>
