@@ -15,6 +15,7 @@ import linkedInLogo from "../images/iconfinder_social-linkedin-circle_771370.png
 import FacebookLogo from "../images/f_logo_RGB-Blue_1024.png";
 import TwitterLogo from "../images/Twitter_Social_Icon_Circle_Color.svg";
 import YoutubeLogo from "../images/youtube_social_circle_red.png";
+
 const theme = createMuiTheme();
 
 theme.typography.h3 = {
@@ -30,7 +31,7 @@ theme.typography.h3 = {
 };
 
 theme.typography.h4 = {
-  fontSize: "1.2rem",
+  fontSize: "1rem",
   "@media (min-width:600px)": {
     fontSize: "1.2rem",
   },
@@ -66,6 +67,23 @@ const UseStyles = makeStyles((theme) => ({
     "&:hover": {
       textDecoration: "none",
     },
+    // [theme.breakpoints.up("sm")]: {
+    //   direction: "row",
+    //   justify: "center",
+    //   alignItems: "center",
+    // },
+  },
+  footerMobile: {
+    [theme.breakpoints.only("sm")]: {
+      direction: "column",
+      justify: "center",
+      alignItems: "center",
+    },
+    [theme.breakpoints.only("xs")]: {
+      direction: "column",
+      justify: "flex-start",
+      alignItems: "flex-start",
+    },
   },
   anchor: {
     color: "black",
@@ -96,14 +114,25 @@ const Footer = () => {
           className={classes.footer}
         >
           <Grid container>
-            <Grid item xs={12} sm={2} md={2} lg={2} xl={2}>
+            <Grid
+              container
+              direction="row"
+              justify="center"
+              alignItems="flex-start"
+              item
+              xs={12}
+              sm={2}
+              md={2}
+              lg={2}
+              xl={2}
+            >
               <Hidden smDown>
                 <Fade in={true}>
-                  <img src={BueLogo} alt="" width="150px" />
+                  <img src={BueLogo} alt="" width="120px" />
                 </Fade>
               </Hidden>
             </Grid>
-            <Grid item xs={12} sm={4} md={4} lg={4} xl={4}>
+            <Grid item xs={12} sm={10} md={10} lg={4} xl={4}>
               <Typography variant="h3">
                 THE BRITISH UNIVERSITY IN EGYPT
               </Typography>
@@ -203,13 +232,14 @@ const Footer = () => {
             </Grid>
             <Grid
               container
-              direction="row"
+              direction="column"
               justify="flex-start"
               alignItems="flex-start"
+              className={classes.footerMobile}
               item
-              xs={12}
-              sm={12}
-              md={2}
+              xs={4}
+              sm={4}
+              md={4}
               lg={2}
               xl={2}
             >
@@ -247,10 +277,11 @@ const Footer = () => {
               direction="column"
               justify="flex-start"
               alignItems="flex-start"
+              className={classes.footerMobile}
               item
-              xs={12}
-              sm={12}
-              md={2}
+              xs={4}
+              sm={4}
+              md={4}
               lg={2}
               xl={2}
             >
@@ -288,10 +319,11 @@ const Footer = () => {
               direction="column"
               justify="flex-start"
               alignItems="flex-start"
+              className={classes.footerMobile}
               item
-              xs={12}
-              sm={12}
-              md={2}
+              xs={4}
+              sm={4}
+              md={4}
               lg={2}
               xl={2}
             >
