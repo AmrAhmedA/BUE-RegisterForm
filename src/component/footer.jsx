@@ -16,7 +16,17 @@ import FacebookLogo from "../images/f_logo_RGB-Blue_1024.png";
 import TwitterLogo from "../images/Twitter_Social_Icon_Circle_Color.svg";
 import YoutubeLogo from "../images/youtube_social_circle_red.png";
 
-const theme = createMuiTheme();
+const theme = createMuiTheme({
+  typography: {
+    fontFamily: [
+      "Nunito",
+      "Roboto",
+      '"Helvetica Neue"',
+      "Arial",
+      "sans-serif",
+    ].join(","),
+  },
+});
 
 theme.typography.h3 = {
   fontWeight: "bold",
@@ -36,7 +46,7 @@ theme.typography.h4 = {
     fontSize: "1.2rem",
   },
   [theme.breakpoints.up("md")]: {
-    fontSize: "1.3rem",
+    fontSize: "1.1rem",
   },
 };
 
@@ -85,6 +95,13 @@ const UseStyles = makeStyles((theme) => ({
       alignItems: "flex-start",
     },
   },
+  utilityItems: {
+    [theme.breakpoints.down("sm")]: {
+      direction: "column",
+      justify: "center",
+      alignItems: "center",
+    },
+  },
   anchor: {
     color: "black",
     "&:hover": {
@@ -114,25 +131,35 @@ const Footer = () => {
           className={classes.footer}
         >
           <Grid container>
-            <Grid
-              container
-              direction="row"
-              justify="center"
-              alignItems="flex-start"
-              item
-              xs={12}
-              sm={2}
-              md={2}
-              lg={2}
-              xl={2}
-            >
-              <Hidden smDown>
+            <Hidden smDown>
+              <Grid
+                container
+                direction="row"
+                justify="center"
+                alignItems="flex-start"
+                item
+                xs={12}
+                sm={2}
+                md={2}
+                lg={2}
+                xl={2}
+              >
                 <Fade in={true}>
                   <img src={BueLogo} alt="" width="120px" />
                 </Fade>
-              </Hidden>
-            </Grid>
-            <Grid item xs={12} sm={10} md={10} lg={4} xl={4}>
+              </Grid>
+            </Hidden>
+            <Grid
+              container
+              direction="column"
+              className={classes.utilityItems}
+              item
+              xs={12}
+              sm={12}
+              md={10}
+              lg={4}
+              xl={4}
+            >
               <Typography variant="h3">
                 THE BRITISH UNIVERSITY IN EGYPT
               </Typography>
@@ -178,7 +205,7 @@ const Footer = () => {
                       className={classes.anchor}
                       href="https://www.facebook.com/amrahmedgewaly/"
                     >
-                      Contract
+                      Contact
                     </a>
                   </li>
                   <li className={classes.listItems}>
@@ -222,6 +249,7 @@ const Footer = () => {
                       <img src={YoutubeLogo} alt="" width="20px" />
                     </a>
                   </li>
+
                   <li className={classes.socialmedia}>
                     <a href="https://www.facebook.com/amrahmedgewaly/">
                       <img src={linkedInLogo} alt="" width="20px" />
@@ -366,7 +394,7 @@ const Footer = () => {
         >
           <p>
             &copy;{new Date().getFullYear()} - The British University in Egypt |
-            All rights reserved | Powered by Software Production Unit
+            All rights reserved to Software Production Unit
           </p>
         </Grid>
       </ThemeProvider>
