@@ -95,7 +95,7 @@ const UseStyles = makeStyles((theme) => ({
     },
   },
   utilityItems: {
-    [theme.breakpoints.down("sm")]: {
+    [theme.breakpoints.down("md")]: {
       direction: "column",
       justify: "center",
       alignItems: "center",
@@ -111,6 +111,9 @@ const UseStyles = makeStyles((theme) => ({
   socialmedia: {
     display: "inline",
     padding: theme.spacing(0.2),
+  },
+  credits: {
+    color: "white",
   },
 }));
 
@@ -132,7 +135,7 @@ const FooterBUE = () => {
             className={classes.footer}
           >
             <Grid container>
-              <Hidden smDown>
+              <Hidden mdDown>
                 <Grid
                   container
                   direction="row"
@@ -157,7 +160,7 @@ const FooterBUE = () => {
                 item
                 xs={12}
                 sm={12}
-                md={10}
+                md={12}
                 lg={4}
                 xl={4}
               >
@@ -392,6 +395,7 @@ const FooterBUE = () => {
             direction="row-reverse"
             justify="center"
             alignItems="flex-end"
+            className={classes.credits}
           >
             <p>
               &copy;{new Date().getFullYear()} - The British University in Egypt
