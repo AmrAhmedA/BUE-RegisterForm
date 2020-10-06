@@ -84,15 +84,10 @@ const UseStyles = makeStyles((theme) => ({
     // },
   },
   footerMobile: {
-    [theme.breakpoints.only("sm")]: {
+    [theme.breakpoints.down("md")]: {
       direction: "column",
       justify: "center",
       alignItems: "center",
-    },
-    [theme.breakpoints.only("xs")]: {
-      direction: "column",
-      justify: "flex-start",
-      alignItems: "flex-start",
     },
   },
   utilityItems: {
