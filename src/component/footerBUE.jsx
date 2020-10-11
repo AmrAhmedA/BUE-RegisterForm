@@ -324,7 +324,7 @@ const FooterBUE = () => {
                         className={classes.anchor}
                         href="https://www.facebook.com/amrahmedgewaly/"
                       >
-                        Admission
+                        Post-Graduate
                       </a>
                     </li>
                     <li className={classes.item}>
@@ -332,7 +332,7 @@ const FooterBUE = () => {
                         className={classes.anchor}
                         href="https://www.facebook.com/amrahmedgewaly/"
                       >
-                        Education
+                        Quality &amp; Validation
                       </a>
                     </li>
                     <li className={classes.item}>
@@ -340,7 +340,7 @@ const FooterBUE = () => {
                         className={classes.anchor}
                         href="https://www.facebook.com/amrahmedgewaly/"
                       >
-                        About BUE
+                        Online Examination
                       </a>
                     </li>
                   </Typography>
@@ -366,7 +366,15 @@ const FooterBUE = () => {
                         className={classes.anchor}
                         href="https://www.facebook.com/amrahmedgewaly/"
                       >
-                        Staff
+                        Human Capital
+                      </a>
+                    </li>
+                    <li className={classes.item}>
+                      <a
+                        className={classes.anchor}
+                        href="https://www.facebook.com/amrahmedgewaly/"
+                      >
+                        Admission
                       </a>
                     </li>
                     <li className={classes.item}>
@@ -375,14 +383,6 @@ const FooterBUE = () => {
                         href="https://www.facebook.com/amrahmedgewaly/"
                       >
                         Students’ Union
-                      </a>
-                    </li>
-                    <li className={classes.item}>
-                      <a
-                        className={classes.anchor}
-                        href="https://www.facebook.com/amrahmedgewaly/"
-                      >
-                        News
                       </a>
                     </li>
                   </ul>
