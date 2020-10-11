@@ -4,9 +4,9 @@ import Joi from "joi-browser";
 import Input from "./common/input";
 import DropDownInputMenu from "./common/dropDownInputMenu";
 import FormContext from "./context/formContext";
-// import Account SetupForm from "./forms/accountSetupForm";
+import AccountSetupForm from "./forms/accountSetupForm";
 import PersonalInformationForm from "./forms/personalInformationForm";
-import PersonalInformation from "./pgs/PersonalInformation";
+// import PersonalInformation from "./pgs/PersonalInformation";
 // import ContactInformationForm from "./forms/contactInformationForm";
 // const initialFieldValues = {
 //   firstname: "",
@@ -180,7 +180,7 @@ export const Form = (stepIndex, handleNext, handleBack, steps) => {
     switch (stepIndex) {
       case 0:
         // return <ContactInformationForm onNext={handleNext} />;
-        return <PersonalInformation onNext={handleNext} />;
+        return <AccountSetupForm onNext={handleNext} />;
       case 1:
         return (
           <PersonalInformationForm

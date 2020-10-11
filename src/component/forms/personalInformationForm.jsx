@@ -6,6 +6,9 @@ import {
   withWidth,
   Paper,
   Container,
+  createMuiTheme,
+  // ThemeProvider,
+  // TextField,
 } from "@material-ui/core";
 
 import FormContext from "../context/formContext";
@@ -17,6 +20,10 @@ const genderItems = ["Male", "Female", "Other"];
 const religionItems = ["Christian", "Muslim", "Jewish", "Other"];
 const nationalityItems = ["Egypt", "Australia"];
 const maritalStatus = ["Single", "Married"];
+
+// const theme = createMuiTheme({
+//   direction: "rtl",
+// });
 
 const PersonalInformationForm = ({ onNext, onBack, activeStep, steps }) => {
   const currentContext = useContext(FormContext);
@@ -63,6 +70,36 @@ const PersonalInformationForm = ({ onNext, onBack, activeStep, steps }) => {
                       "Last Name",
                       "text",
                       ""
+                    )}
+                  </Grid>
+                  <Grid item xs={12} sm={4} md={4} lg={4} xl={4}>
+                    {renderInput(
+                      "firstname",
+                      "firstname",
+                      "First Name",
+                      "text",
+                      "",
+                      16
+                    )}
+                  </Grid>
+                  <Grid item xs={12} sm={4} md={4} lg={4} xl={4}>
+                    {renderInput(
+                      "middlename",
+                      "middlename",
+                      "Middle Name",
+                      "text",
+                      "",
+                      16
+                    )}
+                  </Grid>
+                  <Grid item xs={12} sm={4} md={4} lg={4} xl={4}>
+                    {renderInput(
+                      "lastname",
+                      "lastname",
+                      "Last Name",
+                      "text",
+                      "",
+                      16
                     )}
                   </Grid>
                   <Grid item xs={12} sm={12} md={4} lg={4} xl={4}>
