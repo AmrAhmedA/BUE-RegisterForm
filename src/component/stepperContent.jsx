@@ -55,13 +55,15 @@ export const StepperContent = () => {
 
 export const getSteps = () => {
   return [
-    "ACCOUNT SETUP",
-    "PERSONAL INFORMATION",
-    "CONTACT INFORMATION",
-    "FAMILY INFORMATION",
-    "SCHOOL INFORMATION",
-    "ADMISSION INFORMATION",
-    "SUBMIT INFORMATION",
+    "Personal Setup",
+    "Academic Information",
+    "Program Information",
+    // "PERSONAL INFORMATION",
+    // "CONTACT INFORMATION",
+    // "FAMILY INFORMATION",
+    // "SCHOOL INFORMATION",
+    // "ADMISSION INFORMATION",
+    // "SUBMIT INFORMATION",
   ];
 };
 

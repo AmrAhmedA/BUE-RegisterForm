@@ -142,7 +142,12 @@ const NavBar = () => {
             <MenuIcon />
           </IconButton>
           <Typography className={classes.title} variant="h6" noWrap>
-            <img src={BUELOGO} width="150px" alt=""></img>
+            <img
+              src={BUELOGO}
+              width="170px"
+              alt=""
+              // style={{ position: "fixed" }}
+            ></img>
           </Typography>
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
