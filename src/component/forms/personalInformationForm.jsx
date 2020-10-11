@@ -6,7 +6,7 @@ import {
   withWidth,
   Paper,
   Container,
-  createMuiTheme,
+  // createMuiTheme,
   // ThemeProvider,
   // TextField,
 } from "@material-ui/core";
@@ -124,9 +124,9 @@ const PersonalInformationForm = ({ onNext, onBack, activeStep, steps }) => {
                   <Grid item xs={12} sm={12} md={4} lg={4} xl={4}>
                     {renderDropDown(
                       nationalityItems,
-                      "Place of Birth",
-                      "placeofbirth",
-                      "placeofbirth"
+                      "Country of Citizenship",
+                      "countryofcitizenship",
+                      "countryofcitizenship"
                     )}
                   </Grid>
                   <Grid item xs={12} sm={12} md={4} lg={4} xl={4}>

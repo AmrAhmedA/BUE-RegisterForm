@@ -7,7 +7,7 @@ import FormContext from "./context/formContext";
 import AccountSetupForm from "./forms/accountSetupForm";
 import PersonalInformationForm from "./forms/personalInformationForm";
 // import PersonalInformation from "./pgs/PersonalInformation";
-// import ContactInformationForm from "./forms/contactInformationForm";
+import ContactInformationForm from "./forms/contactInformationForm";
 // const initialFieldValues = {
 //   firstname: "",
 //   secondname: "",
@@ -179,8 +179,8 @@ export const Form = (stepIndex, handleNext, handleBack, steps) => {
     // console.log("renderSwitch - Rendered -----------");
     switch (stepIndex) {
       case 0:
-        // return <ContactInformationForm onNext={handleNext} />;
         return <AccountSetupForm onNext={handleNext} />;
+
       case 1:
         return (
           <PersonalInformationForm
@@ -191,7 +191,14 @@ export const Form = (stepIndex, handleNext, handleBack, steps) => {
           />
         );
       case 2:
-        return "This is the bit I really care about!";
+        return (
+          <ContactInformationForm
+            onNext={handleNext}
+            onBack={handleBack}
+            stepIndex={stepIndex}
+            steps={steps}
+          />
+        );
       default:
         return "Unknown stepIndex";
     }
