@@ -1,4 +1,6 @@
 import React, { useContext } from "react";
+import { DropzoneArea } from "material-ui-dropzone";
+
 import {
   Fade,
   Grid,

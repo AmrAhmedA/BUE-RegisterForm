@@ -11,6 +11,7 @@ import {
 import FormContext from "../context/formContext";
 import PropTypes from "prop-types";
 import { UseStyle } from "../form";
+import { DropzoneArea } from "material-ui-dropzone";
 
 const genderItems = ["Male", "Female", "Other"];
 // const theme = createMuiTheme({
@@ -45,10 +46,10 @@ const ContactInformationForm = ({ onNext, onBack, activeStep, steps }) => {
                       "countryofresidence"
                     )}
                   </Grid>
-                  <Grid item xs={12} sm={4} md={4} lg={4} xl={4}>
+                  <Grid item xs={12} sm={12} md={4} lg={4} xl={4}>
                     {renderInput("street", "street", "Street", "text", "", 16)}
                   </Grid>
-                  <Grid item xs={12} sm={4} md={4} lg={4} xl={4}>
+                  <Grid item xs={12} sm={12} md={4} lg={4} xl={4}>
                     {renderInput(
                       "zip",
                       "zip",
@@ -58,7 +59,7 @@ const ContactInformationForm = ({ onNext, onBack, activeStep, steps }) => {
                       16
                     )}
                   </Grid>
-                  <Grid item xs={12} sm={4} md={4} lg={4} xl={4}>
+                  <Grid item xs={12} sm={12} md={4} lg={4} xl={4}>
                     {renderInput(
                       "mobilenumber",
                       "mobilenumber",
@@ -68,7 +69,7 @@ const ContactInformationForm = ({ onNext, onBack, activeStep, steps }) => {
                       16
                     )}
                   </Grid>
-                  <Grid item xs={12} sm={4} md={4} lg={4} xl={4}>
+                  <Grid item xs={12} sm={12} md={4} lg={4} xl={4}>
                     {renderInput(
                       "secondarymobilenumber",
                       "secondarymobilenumber",
@@ -78,7 +79,7 @@ const ContactInformationForm = ({ onNext, onBack, activeStep, steps }) => {
                       16
                     )}
                   </Grid>
-                  <Grid item xs={12} sm={4} md={4} lg={4} xl={4}>
+                  <Grid item xs={12} sm={12} md={4} lg={4} xl={4}>
                     {renderInput(
                       "landline",
                       "landline",
@@ -88,7 +89,7 @@ const ContactInformationForm = ({ onNext, onBack, activeStep, steps }) => {
                       16
                     )}
                   </Grid>
-                  <Grid item xs={12} sm={4} md={4} lg={4} xl={4}>
+                  <Grid item xs={12} sm={12} md={4} lg={4} xl={4}>
                     {renderInput(
                       "email",
                       "email",
@@ -98,7 +99,7 @@ const ContactInformationForm = ({ onNext, onBack, activeStep, steps }) => {
                       16
                     )}
                   </Grid>
-                  <Grid item xs={12} sm={4} md={4} lg={4} xl={4}>
+                  <Grid item xs={12} sm={12} md={4} lg={4} xl={4}>
                     {renderInput(
                       "verifyemail",
                       "verifyemail",
@@ -107,6 +108,34 @@ const ContactInformationForm = ({ onNext, onBack, activeStep, steps }) => {
                       "",
                       16
                     )}
+                  </Grid>
+                  <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
+                    <Grid
+                      container
+                      direction="row"
+                      justify="space-between"
+                      alignItems="center"
+                    >
+                      <Grid style={{ width: "200px" }}>
+                        <DropzoneArea
+                          acceptedFiles={["image/*"]}
+                          dropzoneText={"Drag and drop your birth certificate"}
+                        />
+                      </Grid>
+                      <Grid style={{ width: "200px" }}>
+                        <DropzoneArea
+                          acceptedFiles={["image/*"]}
+                          dropzoneText={"Drag and drop your Personal ID"}
+                        />
+                      </Grid>
+
+                      <Grid style={{ width: "200px" }}>
+                        <DropzoneArea
+                          acceptedFiles={["image/*"]}
+                          dropzoneText={"Drag and drop your Personal Photo"}
+                        />
+                      </Grid>
+                    </Grid>
                   </Grid>
                   <Grid item xs={12}>
                     <Grid

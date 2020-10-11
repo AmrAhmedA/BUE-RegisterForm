@@ -130,7 +130,7 @@ const NavBar = () => {
   );
   return (
     <div className={classes.grow}>
-      <AppBar position="sticky" color="default">
+      <AppBar position="sticky" color="transparent">
         <Toolbar>
           <IconButton
             edge="start"
