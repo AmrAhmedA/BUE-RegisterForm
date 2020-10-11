@@ -8,6 +8,7 @@ import AccountSetupForm from "./forms/accountSetupForm";
 import PersonalInformationForm from "./forms/personalInformationForm";
 // import PersonalInformation from "./pgs/PersonalInformation";
 import ContactInformationForm from "./forms/contactInformationForm";
+import AcademicInformationForm from "./forms/academicInformation";
 // const initialFieldValues = {
 //   firstname: "",
 //   secondname: "",
@@ -193,6 +194,15 @@ export const Form = (stepIndex, handleNext, handleBack, steps) => {
       case 2:
         return (
           <ContactInformationForm
+            onNext={handleNext}
+            onBack={handleBack}
+            stepIndex={stepIndex}
+            steps={steps}
+          />
+        );
+      case 3:
+        return (
+          <AcademicInformationForm
             onNext={handleNext}
             onBack={handleBack}
             stepIndex={stepIndex}
