@@ -1,4 +1,5 @@
 import React from 'react';
+import "./App.css";
 import HorizontalFormStepper from "./component/horizontalFormStepper"
 import VerticalFormStepper from "./component/verticalFormStepper"
 import 'bootstrap/dist/css/bootstrap.css';

@@ -7,7 +7,6 @@ import {
   Paper,
   Container,
 } from "@material-ui/core";
-
 import FormContext from "../context/formContext";
 import PropTypes from "prop-types";
 import { UseStyle } from "../form";
@@ -21,7 +20,6 @@ const genderItems = ["Male", "Female", "Other"];
 const ContactInformationForm = ({ onNext, onBack, activeStep, steps }) => {
   const currentContext = useContext(FormContext);
   const { handleSubmit, renderInput, renderDropDown } = currentContext;
-
   const { root, buttons } = UseStyle();
 
   return (
@@ -116,25 +114,27 @@ const ContactInformationForm = ({ onNext, onBack, activeStep, steps }) => {
                       justify="space-between"
                       alignItems="center"
                     >
-                      <Grid style={{ width: "200px" }}>
-                        <DropzoneArea
-                          acceptedFiles={["image/*"]}
-                          dropzoneText={"Drag and drop your birth certificate"}
-                        />
-                      </Grid>
-                      <Grid style={{ width: "200px" }}>
-                        <DropzoneArea
-                          acceptedFiles={["image/*"]}
-                          dropzoneText={"Drag and drop your Personal ID"}
-                        />
-                      </Grid>
-
-                      <Grid style={{ width: "200px" }}>
-                        <DropzoneArea
-                          acceptedFiles={["image/*"]}
-                          dropzoneText={"Drag and drop your Personal Photo"}
-                        />
-                      </Grid>
+                      <DropzoneArea
+                        acceptedFiles={["image/*"]}
+                        maxFileSize={1000000}
+                        // filesLimit={20}
+                        dropzoneText={"Drag and drop your birth certificate"}
+                        onChange={(files) => console.log("Files:", files)}
+                      />
+                      <DropzoneArea
+                        acceptedFiles={["image/*"]}
+                        maxFileSize={1000000}
+                        // filesLimit={20}
+                        dropzoneText={"Drag and drop your birth certificate"}
+                        onChange={(files) => console.log("Files:", files)}
+                      />
+                      <DropzoneArea
+                        acceptedFiles={["image/*"]}
+                        maxFileSize={1000000}
+                        // filesLimit={20}
+                        dropzoneText={"Drag and drop your birth certificate"}
+                        onChange={(files) => console.log("Files:", files)}
+                      />
                     </Grid>
                   </Grid>
                   <Grid item xs={12}>
