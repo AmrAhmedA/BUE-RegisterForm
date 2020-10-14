@@ -11,61 +11,55 @@ import ContactInformationForm from "./forms/contactInformationForm";
 import AcademicInformationForm from "./forms/academicInformationForm";
 import ProgramSelectionForm from "./forms/programSelectionForm";
 import SubmitInformationForm from "./forms/submitInformationForm";
-// const initialFieldValues = {
-//   firstname: "",
-//   secondname: "",
-//   middlename: "",
-//   nationality: "",
-//   religion: "",
-//   gender: "",
-//   placeofbirth: "",
-//   maritalstatus: "",
-//   dateofbirth: new Date("2020-01-01T21:11:54"),
-//   idtype: "",
-//   email: "",
-//   id: "",
-//   password: "",
-//   confirmpassword: "",
-//   showPassword: false,
-// };
 
 const initialFieldValues = {
   //accountSetup
-  idtype: "",
-  id: "",
-  useremail: "",
-  password: "",
-  confirmpassword: "",
-  showPassword: false,
+
+  accountSetup: {
+    idtype: "",
+    id: "",
+    useremail: "",
+    password: "",
+    confirmpassword: "",
+    showPassword: false,
+  },
   //personalInformation
-  firstname: "",
-  middlename: "",
-  lastname: "",
-  firstnamearabic: "",
-  middlenamearabic: "",
-  lastnamearabic: "",
-  gender: "",
-  religion: "",
-  nationality: "",
-  countryofcitizenship: "",
-  maritalstatus: "",
+  personalInformation: {
+    firstname: "",
+    middlename: "",
+    lastname: "",
+    firstnamearabic: "",
+    middlenamearabic: "",
+    lastnamearabic: "",
+    gender: "",
+    religion: "",
+    nationality: "",
+    countryofcitizenship: "",
+    maritalstatus: "",
+  },
   //contactInformation
-  countryofresidence: "",
-  zip: "",
-  mobilenumber: "",
-  secondarymobilenumber: "",
-  landline: "",
-  email: "",
-  verifyemail: "",
+  contactInformation: {
+    countryofresidence: "",
+    zip: "",
+    mobilenumber: "",
+    secondarymobilenumber: "",
+    landline: "",
+    email: "",
+    verifyemail: "",
+  },
   //academicInformation
-  university: "",
-  specialization: "",
-  lettergrade: "",
-  levelofeducation: "",
+  academicInformation: {
+    university: "",
+    specialization: "",
+    lettergrade: "",
+    levelofeducation: "",
+  },
   //programSelection
-  faculty: "",
-  masterprogram: "",
-  expectedentryterm: "",
+  programSelection: {
+    faculty: "",
+    masterprogram: "",
+    expectedentryterm: "",
+  },
 };
 
 const schema = {
@@ -187,13 +181,15 @@ export const Form = (stepIndex, handleNext, handleBack, steps) => {
   };
 
   const renderDropDown = (items, label, id, name) => {
+    const { accountSetup } = values;
+    console.log(items, label, name, id);
     return (
       <DropDownInputMenu
         items={items}
         label={label}
         id={id}
         name={name}
-        value={values[name]}
+        value={accountSetup[name]}
         onChange={handleDropDownChange}
       />
     );
