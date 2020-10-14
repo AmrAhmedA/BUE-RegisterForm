@@ -10,6 +10,7 @@ import PersonalInformationForm from "./forms/personalInformationForm";
 import ContactInformationForm from "./forms/contactInformationForm";
 import AcademicInformationForm from "./forms/academicInformationForm";
 import ProgramSelectionForm from "./forms/programSelectionForm";
+import SubmitInformationForm from "./forms/submitInformationForm";
 // const initialFieldValues = {
 //   firstname: "",
 //   secondname: "",
@@ -29,26 +30,47 @@ import ProgramSelectionForm from "./forms/programSelectionForm";
 // };
 
 const initialFieldValues = {
-  firstname: "",
-  secondname: "",
-  middlename: "",
-  nationality: "",
-  religion: "",
-  gender: "",
-  placeofbirth: "",
-  maritalstatus: "",
-  dateofbirth: new Date("2020-01-01T21:11:54"),
+  //accountSetup
   idtype: "",
-  email: "",
   id: "",
+  useremail: "",
   password: "",
   confirmpassword: "",
   showPassword: false,
+  //personalInformation
+  firstname: "",
+  middlename: "",
+  lastname: "",
+  firstnamearabic: "",
+  middlenamearabic: "",
+  lastnamearabic: "",
+  gender: "",
+  religion: "",
+  nationality: "",
+  countryofcitizenship: "",
+  maritalstatus: "",
+  //contactInformation
+  countryofresidence: "",
+  zip: "",
+  mobilenumber: "",
+  secondarymobilenumber: "",
+  landline: "",
+  email: "",
+  verifyemail: "",
+  //academicInformation
+  university: "",
+  specialization: "",
+  lettergrade: "",
+  levelofeducation: "",
+  //programSelection
+  faculty: "",
+  masterprogram: "",
+  expectedentryterm: "",
 };
 
 const schema = {
   id: Joi.string().alphanum().min(16).max(16).required().label("ID Number"),
-  email: Joi.string()
+  useremail: Joi.string()
     .min(6)
     .required()
     .email({
@@ -113,7 +135,7 @@ export const Form = (stepIndex, handleNext, handleBack, steps) => {
     e.preventDefault();
     const errors = validate();
     setErrors(errors || {});
-    console.log(errors);
+    // console.log(errors);
 
     if (errors) return;
     console.log("Submitted");
@@ -179,7 +201,7 @@ export const Form = (stepIndex, handleNext, handleBack, steps) => {
 
   const renderSwitch = (stepIndex, handleNext, handleBack, steps) => {
     // console.log("renderSwitch - Rendered -----------");
-    switch (4) {
+    switch (stepIndex) {
       case 0:
         return <AccountSetupForm onNext={handleNext} />;
 
@@ -213,6 +235,15 @@ export const Form = (stepIndex, handleNext, handleBack, steps) => {
       case 4:
         return (
           <ProgramSelectionForm
+            onNext={handleNext}
+            onBack={handleBack}
+            stepIndex={stepIndex}
+            steps={steps}
+          />
+        );
+      case 5:
+        return (
+          <SubmitInformationForm
             onNext={handleNext}
             onBack={handleBack}
             stepIndex={stepIndex}

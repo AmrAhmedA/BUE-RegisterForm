@@ -15,7 +15,7 @@ import { UseStyle } from "../form";
 const genderItems = ["Male", "Female", "Other"];
 const ProgramSelectionForm = ({ onNext, onBack, activeStep, steps }) => {
   const currentContext = useContext(FormContext);
-  const { handleSubmit, renderInput, renderDropDown } = currentContext;
+  const { handleSubmit, renderDropDown } = currentContext;
   const { root, buttons } = UseStyle();
 
   return (
@@ -37,7 +37,7 @@ const ProgramSelectionForm = ({ onNext, onBack, activeStep, steps }) => {
                   alignItems="center"
                   spacing={3}
                 >
-                  <Grid item xs={12} sm={4} md={8} lg={8} xl={8}>
+                  <Grid item xs={12} sm={12} md={8} lg={8} xl={8}>
                     {renderDropDown(
                       genderItems,
                       "Faculty",

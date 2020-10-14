@@ -65,8 +65,8 @@ const PersonalInformationForm = ({ onNext, onBack, activeStep, steps }) => {
                   </Grid>
                   <Grid item xs={12} sm={12} md={4} lg={4} xl={4}>
                     {renderInput(
-                      "secondname",
-                      "secondname",
+                      "lastname",
+                      "lastname",
                       "Last Name",
                       "text",
                       ""
@@ -74,8 +74,8 @@ const PersonalInformationForm = ({ onNext, onBack, activeStep, steps }) => {
                   </Grid>
                   <Grid item xs={12} sm={4} md={4} lg={4} xl={4}>
                     {renderInput(
-                      "firstname",
-                      "firstname",
+                      "firstnamearabic",
+                      "firstnamearabic",
                       "First Name",
                       "text",
                       "",
@@ -84,8 +84,8 @@ const PersonalInformationForm = ({ onNext, onBack, activeStep, steps }) => {
                   </Grid>
                   <Grid item xs={12} sm={4} md={4} lg={4} xl={4}>
                     {renderInput(
-                      "middlename",
-                      "middlename",
+                      "middlenamearabic",
+                      "middlenamearabic",
                       "Middle Name",
                       "text",
                       "",
@@ -94,8 +94,8 @@ const PersonalInformationForm = ({ onNext, onBack, activeStep, steps }) => {
                   </Grid>
                   <Grid item xs={12} sm={4} md={4} lg={4} xl={4}>
                     {renderInput(
-                      "lastname",
-                      "lastname",
+                      "lastnamearabic",
+                      "lastnamearabic",
                       "Last Name",
                       "text",
                       "",
