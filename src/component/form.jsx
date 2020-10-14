@@ -8,7 +8,8 @@ import AccountSetupForm from "./forms/accountSetupForm";
 import PersonalInformationForm from "./forms/personalInformationForm";
 // import PersonalInformation from "./pgs/PersonalInformation";
 import ContactInformationForm from "./forms/contactInformationForm";
-import AcademicInformationForm from "./forms/academicInformation";
+import AcademicInformationForm from "./forms/academicInformationForm";
+import ProgramSelectionForm from "./forms/programSelectionForm";
 // const initialFieldValues = {
 //   firstname: "",
 //   secondname: "",
@@ -178,7 +179,7 @@ export const Form = (stepIndex, handleNext, handleBack, steps) => {
 
   const renderSwitch = (stepIndex, handleNext, handleBack, steps) => {
     // console.log("renderSwitch - Rendered -----------");
-    switch (stepIndex) {
+    switch (4) {
       case 0:
         return <AccountSetupForm onNext={handleNext} />;
 
@@ -203,6 +204,15 @@ export const Form = (stepIndex, handleNext, handleBack, steps) => {
       case 3:
         return (
           <AcademicInformationForm
+            onNext={handleNext}
+            onBack={handleBack}
+            stepIndex={stepIndex}
+            steps={steps}
+          />
+        );
+      case 4:
+        return (
+          <ProgramSelectionForm
             onNext={handleNext}
             onBack={handleBack}
             stepIndex={stepIndex}

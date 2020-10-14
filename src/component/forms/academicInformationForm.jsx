@@ -13,6 +13,7 @@ import {
 import FormContext from "../context/formContext";
 import PropTypes from "prop-types";
 import { UseStyle } from "../form";
+import DatePicker from "../common/datePicker";
 
 const genderItems = ["Male", "Female", "Other"];
 // const theme = createMuiTheme({
@@ -39,76 +40,80 @@ const AcademicInformationForm = ({ onNext, onBack, activeStep, steps }) => {
             >
               <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
                 <Grid container spacing={3}>
-                  <Grid item xs={12} sm={12} md={4} lg={4} xl={4}>
+                  <Grid item xs={12} sm={12} md={8} lg={8} xl={8}>
+                    {renderInput(
+                      "university",
+                      "university",
+                      "University",
+                      "text",
+                      "",
+                      16
+                    )}
+                  </Grid>
+                  <Grid item xs={12} sm={4} md={4} lg={4} xl={4}>
+                    {renderInput(
+                      "specialization",
+                      "specialization",
+                      "Specialization",
+                      "text",
+                      "",
+                      40
+                    )}
+                  </Grid>
+                  <Grid item xs={12} sm={4} md={4} lg={4} xl={4}>
+                    <DatePicker />
+                  </Grid>
+                  <Grid item xs={12} sm={4} md={4} lg={4} xl={4}>
+                    {renderInput("gpa", "gpa", "GPA", "text", "", 16)}
+                  </Grid>
+                  <Grid item xs={12} sm={4} md={4} lg={4} xl={4}>
+                    {renderInput(
+                      "lettergrade",
+                      "lettergrade",
+                      "Letter Grade",
+                      "text",
+                      "",
+                      16
+                    )}
+                  </Grid>
+                  <Grid item xs={12} sm={4} md={8} lg={8} xl={8}>
                     {renderDropDown(
                       genderItems,
-                      "Country of Residence",
-                      "countryofresidence",
-                      "countryofresidence"
+                      "Highest Level of Education",
+                      "levelofeducation",
+                      "levelofeducation"
                     )}
                   </Grid>
-                  <Grid item xs={12} sm={4} md={4} lg={4} xl={4}>
-                    {renderInput("street", "street", "Street", "text", "", 16)}
-                  </Grid>
-                  <Grid item xs={12} sm={4} md={4} lg={4} xl={4}>
-                    {renderInput(
-                      "zip",
-                      "zip",
-                      "Zip/Postal Code",
-                      "text",
-                      "",
-                      16
-                    )}
-                  </Grid>
-                  <Grid item xs={12} sm={4} md={4} lg={4} xl={4}>
-                    {renderInput(
-                      "mobilenumber",
-                      "mobilenumber",
-                      "Mobile Number",
-                      "text",
-                      "",
-                      16
-                    )}
-                  </Grid>
-                  <Grid item xs={12} sm={4} md={4} lg={4} xl={4}>
-                    {renderInput(
-                      "secondarymobilenumber",
-                      "secondarymobilenumber",
-                      "Secondary Mobile Number",
-                      "text",
-                      "",
-                      16
-                    )}
-                  </Grid>
-                  <Grid item xs={12} sm={4} md={4} lg={4} xl={4}>
-                    {renderInput(
-                      "landline",
-                      "landline",
-                      "Landine",
-                      "text",
-                      "",
-                      16
-                    )}
-                  </Grid>
-                  <Grid item xs={12} sm={4} md={4} lg={4} xl={4}>
-                    {renderInput(
-                      "email",
-                      "email",
-                      "Email Address",
-                      "text",
-                      "",
-                      16
-                    )}
-                  </Grid>
-                  <Grid item xs={12} sm={4} md={4} lg={4} xl={4}>
-                    {renderInput(
-                      "verifyemail",
-                      "verifyemail",
-                      "Verify Email Address",
-                      "text",
-                      "",
-                      16
-                    )}
+                  <Grid item xs={12} sm={4} md={4} lg={4} xl={4}></Grid>
+                  <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
+                    <Grid
+                      container
+                      direction="row"
+                      justify="space-between"
+                      alignItems="center"
+                    >
+                      <DropzoneArea
+                        acceptedFiles={["image/*"]}
+                        maxFileSize={1000000}
+                        // filesLimit={20}
+                        dropzoneText={"Drag and drop your Transcript*"}
+                        onChange={(files) => console.log("Files:", files)}
+                      />
+                      <DropzoneArea
+                        acceptedFiles={["image/*"]}
+                        maxFileSize={1000000}
+                        // filesLimit={20}
+                        dropzoneText={"Drag and drop your Certificate*"}
+                        onChange={(files) => console.log("Files:", files)}
+                      />
+                      <DropzoneArea
+                        acceptedFiles={["image/*"]}
+                        maxFileSize={1000000}
+                        // filesLimit={20}
+                        dropzoneText={"Drag and drop your Grade Scale if any"}
+                        onChange={(files) => console.log("Files:", files)}
+                      />
+                    </Grid>
                   </Grid>
                   <Grid item xs={12}>
                     <Grid
