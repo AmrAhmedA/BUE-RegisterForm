@@ -41,12 +41,12 @@ theme.typography.h3 = {
 };
 
 theme.typography.h4 = {
-  fontSize: "1rem",
+  fontSize: "0.8rem",
   "@media (min-width:600px)": {
-    fontSize: "1.2rem",
+    fontSize: "0.8rem",
   },
   [theme.breakpoints.up("md")]: {
-    fontSize: "1.1rem",
+    fontSize: "1rem",
   },
 };
 
