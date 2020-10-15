@@ -14,7 +14,6 @@ import SubmitInformationForm from "./forms/submitInformationForm";
 
 const initialFieldValues = {
   //accountSetup
-
   accountSetup: {
     idtype: "",
     id: "",
@@ -51,6 +50,7 @@ const initialFieldValues = {
   //academicInformation
   academicInformation: {
     university: "",
+    gpa: "",
     specialization: "",
     lettergrade: "",
     levelofeducation: "",
@@ -195,9 +195,11 @@ export const Form = (stepIndex, handleNext, handleBack, steps) => {
       [name]: errorMessage,
     });
 
+    const formObj = getFormObject(name);
+    const formName = getFormName(name);
     setValues({
       ...values,
-      [name]: value,
+      [Object.keys(formName)[0]]: { ...formObj, [name]: value },
     });
   };
 
@@ -211,20 +213,7 @@ export const Form = (stepIndex, handleNext, handleBack, steps) => {
 
   const renderInput = (id, name, label, type, helperText, maxLength) => {
     // console.log(name);
-
-    const value =
-      name in accountSetup
-        ? accountSetup
-        : name in personalInformation
-        ? personalInformation
-        : name in contactInformation
-        ? contactInformation
-        : name in academicInformation
-        ? academicInformation
-        : name in programSelection
-        ? programSelection
-        : null;
-
+    const value = getFormObject(name);
     return (
       <Input
         id={id}
