@@ -40,6 +40,7 @@ const initialFieldValues = {
   //contactInformation
   contactInformation: {
     countryofresidence: "",
+    street: "",
     zip: "",
     mobilenumber: "",
     secondarymobilenumber: "",
@@ -104,13 +105,26 @@ export const Form = (stepIndex, handleNext, handleBack, steps) => {
   //   setSelectedDate(date);
   // };
 
-  const handleDropDownChange = (event) => {
-    const { name, value } = event.target;
-    console.log(event.target);
-
-    const formObj =
+  const getFormName = (name) => {
+    const formName =
       name in accountSetup
         ? { accountSetup }
+        : name in personalInformation
+        ? { personalInformation }
+        : name in contactInformation
+        ? { contactInformation }
+        : name in academicInformation
+        ? { academicInformation }
+        : name in programSelection
+        ? { programSelection }
+        : null;
+    return formName;
+  };
+
+  const getFormObject = (name) => {
+    const formObj =
+      name in accountSetup
+        ? accountSetup
         : name in personalInformation
         ? personalInformation
         : name in contactInformation
@@ -120,14 +134,20 @@ export const Form = (stepIndex, handleNext, handleBack, steps) => {
         : name in programSelection
         ? programSelection
         : null;
+    return formObj;
+  };
 
-    // const objKey = Object.keys(formObj)[0].toString;
-    var obj = {};
-    obj[Object.keys(formObj)[0].toString()] = { formObj };
-    console.log("Amora", obj);
+  const handleDropDownChange = (event) => {
+    const { name, value } = event.target;
+    console.log(event.target);
+
+    const formName = getFormName(name);
+    const formObj = getFormObject(name);
+
+    console.log("Amora", formName);
     setValues({
       ...values,
-      obj: { ...obj, [name]: value },
+      [Object.keys(formName)[0]]: { ...formObj, [name]: value },
     });
     console.log("Amora", values);
   };
