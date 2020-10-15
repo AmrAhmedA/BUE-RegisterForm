@@ -16,7 +16,7 @@ const Input = memo((props) => {
     maxLength,
     ...rest
   } = props;
-  console.log("Input -Rendered");
+  // console.log("Input -Rendered");
 
   return (
     <React.Fragment>

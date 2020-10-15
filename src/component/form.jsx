@@ -90,6 +90,13 @@ export const Form = (stepIndex, handleNext, handleBack, steps) => {
   const [values, setValues] = useState(initialFieldValues);
   const [errors, setErrors] = useState({});
 
+  const {
+    accountSetup,
+    personalInformation,
+    contactInformation,
+    academicInformation,
+    programSelection,
+  } = values;
   // const [selectedDate, setSelectedDate] = React.useState(null);
 
   // Setting the date as default computed property
@@ -99,11 +106,30 @@ export const Form = (stepIndex, handleNext, handleBack, steps) => {
 
   const handleDropDownChange = (event) => {
     const { name, value } = event.target;
-    console.log(value, name);
+    console.log(event.target);
+
+    const formObj =
+      name in accountSetup
+        ? { accountSetup }
+        : name in personalInformation
+        ? personalInformation
+        : name in contactInformation
+        ? contactInformation
+        : name in academicInformation
+        ? academicInformation
+        : name in programSelection
+        ? programSelection
+        : null;
+
+    // const objKey = Object.keys(formObj)[0].toString;
+    var obj = {};
+    obj[Object.keys(formObj)[0].toString()] = { formObj };
+    console.log("Amora", obj);
     setValues({
       ...values,
-      [name]: value,
+      obj: { ...obj, [name]: value },
     });
+    console.log("Amora", values);
   };
 
   const validateProperty = ({ name, value }) => {
@@ -164,7 +190,21 @@ export const Form = (stepIndex, handleNext, handleBack, steps) => {
   };
 
   const renderInput = (id, name, label, type, helperText, maxLength) => {
-    // console.log(errors[name]);
+    // console.log(name);
+
+    const value =
+      name in accountSetup
+        ? accountSetup
+        : name in personalInformation
+        ? personalInformation
+        : name in contactInformation
+        ? contactInformation
+        : name in academicInformation
+        ? academicInformation
+        : name in programSelection
+        ? programSelection
+        : null;
+
     return (
       <Input
         id={id}
@@ -174,22 +214,44 @@ export const Form = (stepIndex, handleNext, handleBack, steps) => {
         onChange={handleInputChange}
         helperText={helperText}
         maxLength={maxLength}
-        value={values[name]}
+        value={value[name]}
         error={errors[name]}
       />
     );
   };
 
   const renderDropDown = (items, label, id, name) => {
-    const { accountSetup } = values;
-    console.log(items, label, name, id);
+    console.log(name);
+
+    const {
+      accountSetup,
+      personalInformation,
+      contactInformation,
+      academicInformation,
+      programSelection,
+    } = values;
+
+    const value =
+      name in accountSetup
+        ? accountSetup
+        : name in personalInformation
+        ? personalInformation
+        : name in contactInformation
+        ? contactInformation
+        : name in academicInformation
+        ? academicInformation
+        : name in programSelection
+        ? programSelection
+        : null;
+
+    console.log(value[name]);
     return (
       <DropDownInputMenu
         items={items}
         label={label}
         id={id}
         name={name}
-        value={accountSetup[name]}
+        value={value[name]}
         onChange={handleDropDownChange}
       />
     );
