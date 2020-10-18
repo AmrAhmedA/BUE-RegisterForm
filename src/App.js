@@ -8,7 +8,8 @@ import { useMediaQuery, withWidth, createMuiTheme } from '@material-ui/core/';
 import { StepperContent } from "./component/stepperContent"
 import NavBar from './component/navBar';
 // import Footer from './component/footer';
-import FooterBUE from "./component/footerBUE";
+import FooterBUE from "./footer/footerBUE";
+import FooterUpdated from "./footer/updatedFooter";
 // import Child from './component/context/Child';
 // import Parent from './component/context/Parent';
 // import ChildClass from './component/context/childClass';
@@ -48,7 +49,7 @@ function App(props) {
       <NavBar />
       {matches ? <VerticalFormStepper {...stepContent} /> :
         <HorizontalFormStepper {...stepContent} />}
-      <FooterBUE />
+      <FooterUpdated />
     </div>
   );
 
