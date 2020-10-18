@@ -3,6 +3,7 @@ import { makeStyles } from "@material-ui/core";
 import Joi from "joi-browser";
 import Input from "./common/input";
 import DropDownInputMenu from "./common/dropDownInputMenu";
+import DropDownCountries from "./common/dropDownCountries";
 import FormContext from "./context/formContext";
 import AccountSetupForm from "./forms/accountSetupForm";
 import PersonalInformationForm from "./forms/personalInformationForm";
@@ -266,6 +267,40 @@ export const Form = (stepIndex, handleNext, handleBack, steps) => {
     );
   };
 
+  const renderDropDownCountries = (items, label, id, name) => {
+    const {
+      accountSetup,
+      personalInformation,
+      contactInformation,
+      academicInformation,
+      programSelection,
+    } = values;
+
+    const value =
+      name in accountSetup
+        ? accountSetup
+        : name in personalInformation
+        ? personalInformation
+        : name in contactInformation
+        ? contactInformation
+        : name in academicInformation
+        ? academicInformation
+        : name in programSelection
+        ? programSelection
+        : null;
+
+    return (
+      <DropDownCountries
+        items={items}
+        label={label}
+        id={id}
+        name={name}
+        value={value[name]}
+        onChange={handleDropDownChange}
+      />
+    );
+  };
+
   const renderSwitch = (stepIndex, handleNext, handleBack, steps) => {
     // console.log("renderSwitch - Rendered -----------");
     switch (stepIndex) {
@@ -332,6 +367,7 @@ export const Form = (stepIndex, handleNext, handleBack, steps) => {
         handleMouseDownPassword,
         renderInput,
         renderDropDown,
+        renderDropDownCountries,
         validate,
       }}
     >

@@ -15,6 +15,10 @@ import FormContext from "../context/formContext";
 import PropTypes from "prop-types";
 import { UseStyle } from "../form";
 import DatePicker from "../common/datePicker";
+import {
+  getCountries,
+  getCountryCallingCode,
+} from "react-phone-number-input/input";
 
 const genderItems = ["Male", "Female", "Other"];
 const religionItems = ["Christian", "Muslim", "Jewish", "Other"];
@@ -27,7 +31,12 @@ const maritalStatus = ["Single", "Married"];
 
 const PersonalInformationForm = ({ onNext, onBack, activeStep, steps }) => {
   const currentContext = useContext(FormContext);
-  const { handleSubmit, renderInput, renderDropDown } = currentContext;
+  const {
+    handleSubmit,
+    renderInput,
+    renderDropDown,
+    renderDropDownCountries,
+  } = currentContext;
 
   const { root, buttons } = UseStyle();
 
@@ -114,16 +123,16 @@ const PersonalInformationForm = ({ onNext, onBack, activeStep, steps }) => {
                     )}
                   </Grid>
                   <Grid item xs={12} sm={12} md={4} lg={4} xl={4}>
-                    {renderDropDown(
-                      nationalityItems,
+                    {renderDropDownCountries(
+                      getCountries(),
                       "Natioanlity",
                       "nationality",
                       "nationality"
                     )}
                   </Grid>
                   <Grid item xs={12} sm={12} md={4} lg={4} xl={4}>
-                    {renderDropDown(
-                      nationalityItems,
+                    {renderDropDownCountries(
+                      getCountries(),
                       "Country of Citizenship",
                       "countryofcitizenship",
                       "countryofcitizenship"
