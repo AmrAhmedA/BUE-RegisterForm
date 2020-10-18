@@ -427,54 +427,61 @@ const FooterUpdated = () => {
               </Grid>
             </Grid>
           </Grid>
-          <Grid
-            container
-            direction="row-reverse"
-            justify="center"
-            alignItems="flex-end"
-            className={classes.credits}
-          >
-            <p>
-              &copy;{new Date().getFullYear()} - The British University in Egypt
-              | All rights reserved to Software Production Unit
-            </p>
-          </Grid>
         </ThemeProvider>
         <Grid>
-          <Grid item xs={12} sm={6} md={6} lg={6} xl={6}>
-            <Typography variant="h6" className={classes.title}>
-              Latest Updates
-            </Typography>
-            <List>
-              {generate(
-                <ListItem>
-                  <ListItemAvatar>
-                    <Avatar
-                      alt="Amr Ahmed"
-                      src={user}
-                      className={classes.userAvatar}
-                    />
-                  </ListItemAvatar>
-                  <ListItemText
-                    className={classes.listText}
-                    primary="Single-line item"
-                    secondary="Secondary text"
-                  />
-                  <ListItemSecondaryAction>
-                    <IconButton edge="end" aria-label="Favorite">
-                      <FavoriteIcon
-                        style={{ color: "white" }}
-                        // onClick={() => {
-                        //   console.log("Clicked");
-                        // }}
+          <Grid container direction="row" justify="center" alignItems="center">
+            <Grid item xs={12} sm={8} md={6} lg={6} xl={6}>
+              <Typography variant="h6" className={classes.title}>
+                Latest Updates
+              </Typography>
+              <List>
+                {generate(
+                  <ListItem>
+                    <ListItemAvatar>
+                      <Avatar
+                        alt="Amr Ahmed"
+                        src={user}
+                        className={classes.userAvatar}
                       />
-                    </IconButton>
-                  </ListItemSecondaryAction>
-                </ListItem>
-              )}
-            </List>
+                    </ListItemAvatar>
+                    <ListItemText
+                      className={classes.listText}
+                      primary="Single-line item"
+                      secondary="Secondary text"
+                    />
+                    <ListItemSecondaryAction>
+                      <IconButton edge="end" aria-label="Favorite">
+                        <FavoriteIcon
+                          style={{ color: "white" }}
+                          // onClick={() => {
+                          //   console.log("Clicked");
+                          // }}
+                        />
+                      </IconButton>
+                    </ListItemSecondaryAction>
+                  </ListItem>
+                )}
+              </List>
+            </Grid>
           </Grid>
         </Grid>
+        <Divider
+          variant="middle"
+          light={true}
+          style={{ backgroundColor: "white" }}
+        />
+        <Grid
+          container
+          direction="row-reverse"
+          justify="center"
+          alignItems="flex-end"
+          className={classes.credits}
+        >
+          <p>
+            &copy;{new Date().getFullYear()} - The British University in Egypt |
+            All rights reserved to Software Production Unit
+          </p>
+        </Grid>{" "}
       </Container>
     </Grid>
   );

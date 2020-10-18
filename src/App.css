@@ -1,3 +1,4 @@
+/* DropZone */
 .MuiDropzoneArea-root {
   width: 25%  !important;
   min-height: 0px !important;
@@ -5,6 +6,8 @@
 .MuiDropzonePreviewList-image {
   max-width: 100px !important;
 }
+
+/* Updated Footer List  */
 .MuiTypography-colorTextSecondary{
   color: white !important;
 } 
