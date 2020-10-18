@@ -10,6 +10,12 @@ import {
   Fade,
   Divider,
   Avatar,
+  List,
+  ListItem,
+  ListItemAvatar,
+  ListItemSecondaryAction,
+  ListItemText,
+  IconButton,
 } from "@material-ui/core";
 import BueLogo from "../images/bue eagle 2.bcb94f54.png";
 import user from "../images/Dr-Samy-Ghoniemy-e1568293727363.jpg";
@@ -17,14 +23,6 @@ import linkedInLogo from "../images/iconfinder_social-linkedin-circle_771370.png
 import FacebookLogo from "../images/f_logo_RGB-Blue_1024.png";
 import TwitterLogo from "../images/Twitter_Social_Icon_Circle_Color.svg";
 import YoutubeLogo from "../images/youtube_social_circle_red.png";
-
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemAvatar from "@material-ui/core/ListItemAvatar";
-import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
-import ListItemText from "@material-ui/core/ListItemText";
-import IconButton from "@material-ui/core/IconButton";
-import FolderIcon from "@material-ui/icons/Folder";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 const theme = createMuiTheme({
   typography: {
@@ -146,9 +144,6 @@ const UseStyles = makeStyles((theme) => ({
   listText: {
     paddingLeft: theme.spacing(2),
   },
-  secondary: {
-    color: "white",
-  },
 }));
 
 function generate(element) {
@@ -161,9 +156,6 @@ function generate(element) {
 
 const FooterUpdated = () => {
   const classes = UseStyles();
-
-  const [dense, setDense] = React.useState(false);
-  const [secondary, setSecondary] = React.useState(false);
 
   return (
     <Grid className={classes.footerContainer}>
@@ -448,13 +440,12 @@ const FooterUpdated = () => {
             </p>
           </Grid>
         </ThemeProvider>
-        <Avatar alt="Amr Ahmed" src={user} className={classes.userAvatar} />
         <Grid>
           <Grid item xs={12} sm={6} md={6} lg={6} xl={6}>
             <Typography variant="h6" className={classes.title}>
               Latest Updates
             </Typography>
-            <List dense={dense}>
+            <List>
               {generate(
                 <ListItem>
                   <ListItemAvatar>
@@ -465,8 +456,7 @@ const FooterUpdated = () => {
                     />
                   </ListItemAvatar>
                   <ListItemText
-                    className={classes.secondary}
-                    style={{ color: "white" }}
+                    className={classes.listText}
                     primary="Single-line item"
                     secondary="Secondary text"
                   />

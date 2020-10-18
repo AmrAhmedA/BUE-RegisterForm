@@ -5,3 +5,9 @@
 .MuiDropzonePreviewList-image {
   max-width: 100px !important;
 }
+.MuiTypography-colorTextSecondary{
+  color: white !important;
+} 
+.MuiListItemText-primary{
+  color: white !important;
+}

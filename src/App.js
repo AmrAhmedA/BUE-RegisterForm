@@ -7,9 +7,9 @@ import PropTypes from 'prop-types';
 import { useMediaQuery, withWidth, createMuiTheme } from '@material-ui/core/';
 import { StepperContent } from "./component/stepperContent"
 import NavBar from './component/navBar';
-// import Footer from './component/footer';
-import FooterBUE from "./footer/footerBUE";
 import FooterUpdated from "./footer/updatedFooter";
+// import Footer from './component/footer';
+// import FooterBUE from "./footer/footerBUE";
 // import Child from './component/context/Child';
 // import Parent from './component/context/Parent';
 // import ChildClass from './component/context/childClass';
