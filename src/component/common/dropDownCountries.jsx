@@ -1,9 +1,5 @@
 import React from "react";
 import { InputLabel, MenuItem, FormControl, Select } from "@material-ui/core/";
-import {
-  getCountries,
-  getCountryCallingCode,
-} from "react-phone-number-input/input";
 import en from "react-phone-number-input/locale/en.json";
 const DropDownCountries = ({ items, label, id, onChange, value, name }) => {
   return (

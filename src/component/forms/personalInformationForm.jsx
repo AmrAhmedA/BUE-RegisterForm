@@ -6,23 +6,15 @@ import {
   withWidth,
   Paper,
   Container,
-  // createMuiTheme,
-  // ThemeProvider,
-  // TextField,
 } from "@material-ui/core";
-
 import FormContext from "../context/formContext";
 import PropTypes from "prop-types";
 import { UseStyle } from "../form";
 import DatePicker from "../common/datePicker";
-import {
-  getCountries,
-  getCountryCallingCode,
-} from "react-phone-number-input/input";
+import { getCountries } from "react-phone-number-input/input";
 
 const genderItems = ["Male", "Female", "Other"];
 const religionItems = ["Christian", "Muslim", "Jewish", "Other"];
-const nationalityItems = ["Egypt", "Australia"];
 const maritalStatus = ["Single", "Married"];
 
 // const theme = createMuiTheme({

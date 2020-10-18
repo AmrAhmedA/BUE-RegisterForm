@@ -6,7 +6,7 @@ import {
   Typography,
   Container,
   makeStyles,
-  Hidden,
+  // Hidden,
   Fade,
   Divider,
 } from "@material-ui/core";
@@ -36,7 +36,7 @@ theme.typography.h3 = {
     fontSize: "1.2rem",
   },
   [theme.breakpoints.up("md")]: {
-    fontSize: "1.3rem",
+    fontSize: "1.5rem",
   },
 };
 
@@ -75,6 +75,12 @@ const UseStyles = makeStyles((theme) => ({
   },
   location: {
     color: "white",
+  },
+  logo: {
+    width: "120px",
+    [theme.breakpoints.down("md")]: {
+      width: "90px",
+    },
   },
   listItems: {
     display: "inline",
@@ -135,24 +141,24 @@ const FooterBUE = () => {
             className={classes.footer}
           >
             <Grid container>
-              <Hidden mdDown>
-                <Grid
-                  container
-                  direction="row"
-                  justify="center"
-                  alignItems="flex-start"
-                  item
-                  xs={12}
-                  sm={2}
-                  md={2}
-                  lg={2}
-                  xl={2}
-                >
-                  <Fade in={true}>
-                    <img src={BueLogo} alt="" width="120px" />
-                  </Fade>
-                </Grid>
-              </Hidden>
+              {/* <Hidden mdDown> */}
+              <Grid
+                container
+                direction="row"
+                justify="center"
+                alignItems="flex-start"
+                item
+                xs={12}
+                sm={12}
+                md={12}
+                lg={2}
+                xl={2}
+              >
+                <Fade in={true}>
+                  <img src={BueLogo} className={classes.logo} alt="" />
+                </Fade>
+              </Grid>
+              {/* </Hidden> */}
               <Grid
                 container
                 direction="column"
