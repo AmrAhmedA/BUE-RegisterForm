@@ -96,6 +96,7 @@ const UseStyles = makeStyles((theme) => ({
     textDecoration: "underline",
   },
   item: {
+    listStyleType: "none",
     marginTop: theme.spacing(1),
     "&:hover": {
       textDecoration: "none",
